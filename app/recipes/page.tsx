@@ -25,13 +25,13 @@ const allRecipes = [
 ];
 
 const categories = [
-  { id: 'fast', icon: '⚡', name: 'Fast Recipes', desc: '≤5–10 min cooking time', badge: 'Quick' },
-  { id: 'high-reward', icon: '💰', name: 'High-Reward Recipes', desc: 'Best rewards & drops', badge: 'Premium' },
-  { id: 'beginner', icon: '🌱', name: 'Beginner-Friendly', desc: 'Easy with common ingredients', badge: 'Starter' },
-  { id: 'pie', icon: '🥧', name: 'Pie Recipes', desc: 'Sweet & savory pies', badge: '3 recipes' },
-  { id: 'burger', icon: '🍔', name: 'Burger Recipes', desc: 'Hearty & filling burgers', badge: '3 recipes' },
-  { id: 'soup', icon: '🍲', name: 'Soup Recipes', desc: 'Warm & comforting soups', badge: '3 recipes' },
-  { id: 'drink', icon: '🧃', name: 'Drink Recipes', desc: 'Refreshing beverages', badge: '3 recipes' },
+  { id: 'fast', icon: '⚡', name: 'Fast Recipes', desc: '≤5–10 min cooking time', badge: 'Quick', link: '/recipes/fast' },
+  { id: 'high-reward', icon: '💰', name: 'High-Reward Recipes', desc: 'Best rewards & drops', badge: 'Premium', link: '/recipes/high-reward' },
+  { id: 'beginner', icon: '🌱', name: 'Beginner-Friendly', desc: 'Easy with common ingredients', badge: 'Starter', link: '/recipes/beginners' },
+  { id: 'pie', icon: '🥧', name: 'Pie Recipes', desc: 'Sweet & savory pies', badge: '3 recipes', link: '/recipes/pies' },
+  { id: 'burger', icon: '🍔', name: 'Burger Recipes', desc: 'Hearty & filling burgers', badge: '3 recipes', link: '/recipes/burgers' },
+  { id: 'soup', icon: '🍲', name: 'Soup Recipes', desc: 'Warm & comforting soups', badge: '3 recipes', link: '/recipes/soups' },
+  { id: 'drink', icon: '🧃', name: 'Drink Recipes', desc: 'Refreshing beverages', badge: '3 recipes', link: '/recipes/drinks' },
 ];
 
 const quickFilters = ['Tomato', 'Milk', 'Cheese', 'Legendary', 'Mythical', '≤ 5 min', '≤ 10 min'];
@@ -80,16 +80,16 @@ export default function RecipesPage() {
           <section className={styles.categoriesSection}>
             <div className={styles.categoryGrid}>
               {categories.map((cat) => (
-                <button
+                <Link
                   key={cat.id}
-                  onClick={() => setSelectedCategory(cat.id === selectedCategory ? 'all' : cat.id)}
-                  className={`${styles.categoryCard} ${selectedCategory === cat.id ? styles.activeCategory : ''}`}
+                  href={cat.link}
+                  className={styles.categoryCard}
                 >
                   <span className={styles.catIcon}>{cat.icon}</span>
                   <h3>{cat.name}</h3>
                   <p>{cat.desc}</p>
                   <span className={styles.catBadge}>{cat.badge}</span>
-                </button>
+                </Link>
               ))}
             </div>
           </section>
