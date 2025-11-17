@@ -14,12 +14,12 @@ export default function Header() {
           <nav className={styles.nav}>
             <Link href="/">🏠 Home</Link>
             <Link href="/recipes">📖 Recipes</Link>
-            <Link href="/ingredients">🥕 Ingredients</Link>
-            <Link href="/rarity">⭐ Rarity</Link>
-            <Link href="/rewards">🎁 Rewards</Link>
+            <Link href="/coming-soon">🥕 Ingredients</Link>
+            <Link href="/coming-soon">⭐ Rarity</Link>
+            <Link href="/coming-soon">🎁 Rewards</Link>
           </nav>
 
-          <Link href="/cooking" className={styles.ctaBtn}>
+          <Link href="/coming-soon" className={styles.ctaBtn}>
             Cooking Guide
           </Link>
         </div>
