@@ -94,7 +94,11 @@ export default function FastRecipePage() {
           <section className={styles.recipesSection}>
             <div className={styles.recipeGrid}>
               {fastRecipes.map((recipe) => (
-                <article key={recipe.name} className={styles.recipeCard}>
+                <Link
+                  key={recipe.name}
+                  href={`/recipes/${recipe.name.toLowerCase().replace(/ /g, '-')}`}
+                  className={styles.recipeCard}
+                >
                   <div className={styles.recipeHeader}>
                     <h3>{recipe.name}</h3>
                     <span className={styles.rarityBadge}>{recipe.rarity}</span>
@@ -111,7 +115,7 @@ export default function FastRecipePage() {
                       </span>
                     </div>
                   </div>
-                </article>
+                </Link>
               ))}
             </div>
           </section>

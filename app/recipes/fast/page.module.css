@@ -153,6 +153,10 @@
   padding: 24px;
   transition: all 0.3s ease;
   animation: fadeInUp 0.8s ease;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  cursor: pointer;
 }
 
 .recipeCard:hover {

@@ -265,12 +265,12 @@ export default function HomePage() {
               Your ultimate guide to cooking success in Grow a Garden! Discover comprehensive grow a garden recipes, expert cooking strategies, and unlock every delicious possibility in your virtual kitchen. From beginner-friendly dishes to legendary feast creations, we have every grow a garden recipe you need.
             </p>
             <div className={styles.heroCtas}>
-              <button type="button" className={styles.primaryButton}>
+              <a href="/recipes" className={styles.primaryButton}>
                 Browse All Recipes
-              </button>
-              <button type="button" className={styles.ghostButton}>
+              </a>
+              <a href="/submit-correction" className={styles.ghostButton}>
                 Submit Correction
-              </button>
+              </a>
             </div>
           </div>
 
@@ -371,13 +371,14 @@ export default function HomePage() {
           </div>
           <div className={styles.grid}>
             {categories.map((category) => (
-              <article
+              <a
                 key={category.label}
-                className={`${styles.card} ${category.tone ? styles[`card${category.tone}`] : ''}`}
+                href={`/recipes/${category.label.toLowerCase().replace(/ /g, '-')}`}
+                className={`${styles.card} ${styles.clickableCard} ${category.tone ? styles[`card${category.tone}`] : ''}`}
               >
                 <h3>{category.label}</h3>
                 <p>{category.description}</p>
-              </article>
+              </a>
             ))}
           </div>
           <div className={styles.sectionContent} style={{ marginTop: '32px' }}>
@@ -403,7 +404,7 @@ export default function HomePage() {
             </div>
             <div className={styles.grid}>
               {detailedRecipes.pies.map((recipe) => (
-                <article key={recipe.name} className={styles.card}>
+                <a key={recipe.name} href={`/recipes/${recipe.name.toLowerCase().replace(/ /g, '-')}`} className={`${styles.card} ${styles.clickableCard}`}>
                   <h4 style={{ fontSize: '18px', marginBottom: '8px' }}>
                     {recipe.icon} {recipe.name}
                   </h4>
@@ -412,7 +413,7 @@ export default function HomePage() {
                     <span>Cook Time: {recipe.time}</span>
                     <span className={styles.badge}>{recipe.rarity}</span>
                   </div>
-                </article>
+                </a>
               ))}
             </div>
           </div>
@@ -425,7 +426,7 @@ export default function HomePage() {
             </div>
             <div className={styles.grid}>
               {detailedRecipes.burgers.map((recipe) => (
-                <article key={recipe.name} className={styles.card}>
+                <a key={recipe.name} href={`/recipes/${recipe.name.toLowerCase().replace(/ /g, '-')}`} className={`${styles.card} ${styles.clickableCard}`}>
                   <h4 style={{ fontSize: '18px', marginBottom: '8px' }}>
                     {recipe.icon} {recipe.name}
                   </h4>
@@ -434,7 +435,7 @@ export default function HomePage() {
                     <span>Cook Time: {recipe.time}</span>
                     <span className={styles.badge}>{recipe.rarity}</span>
                   </div>
-                </article>
+                </a>
               ))}
             </div>
           </div>
@@ -447,7 +448,7 @@ export default function HomePage() {
             </div>
             <div className={styles.grid}>
               {detailedRecipes.soups.map((recipe) => (
-                <article key={recipe.name} className={styles.card}>
+                <a key={recipe.name} href={`/recipes/${recipe.name.toLowerCase().replace(/ /g, '-')}`} className={`${styles.card} ${styles.clickableCard}`}>
                   <h4 style={{ fontSize: '18px', marginBottom: '8px' }}>
                     {recipe.icon} {recipe.name}
                   </h4>
@@ -456,7 +457,7 @@ export default function HomePage() {
                     <span>Cook Time: {recipe.time}</span>
                     <span className={styles.badge}>{recipe.rarity}</span>
                   </div>
-                </article>
+                </a>
               ))}
             </div>
           </div>
@@ -469,7 +470,7 @@ export default function HomePage() {
             </div>
             <div className={styles.grid}>
               {detailedRecipes.drinks.map((recipe) => (
-                <article key={recipe.name} className={styles.card}>
+                <a key={recipe.name} href={`/recipes/${recipe.name.toLowerCase().replace(/ /g, '-')}`} className={`${styles.card} ${styles.clickableCard}`}>
                   <h4 style={{ fontSize: '18px', marginBottom: '8px' }}>
                     {recipe.icon} {recipe.name}
                   </h4>
@@ -478,7 +479,7 @@ export default function HomePage() {
                     <span>Cook Time: {recipe.time}</span>
                     <span className={styles.badge}>{recipe.rarity}</span>
                   </div>
-                </article>
+                </a>
               ))}
             </div>
           </div>
@@ -493,7 +494,7 @@ export default function HomePage() {
           </div>
           <div className={styles.grid}>
             {popularRecipes.map((recipe) => (
-              <article key={recipe.name} className={styles.card}>
+              <a key={recipe.name} href={`/recipes/${recipe.name.toLowerCase().replace(/ /g, '-')}`} className={`${styles.card} ${styles.clickableCard}`}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
                   <span className={`${styles.badge} ${styles[recipe.tone]}`}>
                     {recipe.rarity}
@@ -505,7 +506,7 @@ export default function HomePage() {
                   <span>Reward: <strong>{recipe.reward}</strong></span>
                   <span>Ingredients: <strong>{recipe.ingredients}</strong></span>
                 </div>
-              </article>
+              </a>
             ))}
           </div>
           <div className={styles.sectionContent} style={{ marginTop: '32px' }}>
@@ -524,9 +525,10 @@ export default function HomePage() {
           </div>
           <div className={styles.grid}>
             {exploreCategories.map((category) => (
-              <article
+              <a
                 key={category.name}
-                className={`${styles.card} ${styles.exploreCard} ${styles[`color${category.color}`]}`}
+                href={`/recipes/${category.name.toLowerCase().replace(/ /g, '-')}`}
+                className={`${styles.card} ${styles.clickableCard} ${styles.exploreCard} ${styles[`color${category.color}`]}`}
               >
                 <div className={styles.exploreIcon}>{category.icon}</div>
                 <div className={styles.exploreContent}>
@@ -534,7 +536,7 @@ export default function HomePage() {
                   <span className={styles.count}>{category.count} recipes available</span>
                   <p>{category.description}</p>
                 </div>
-              </article>
+              </a>
             ))}
           </div>
         </section>
@@ -570,12 +572,12 @@ export default function HomePage() {
             Join thousands of players who have mastered grow a garden recipes using our comprehensive guides. Get instant access to verified recipes, expert strategies, and community insights.
           </p>
           <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '24px' }}>
-            <button type="button" className={styles.primaryButton}>
+            <a href="/changelog" className={styles.primaryButton}>
               View Updates
-            </button>
-            <button type="button" className={styles.ghostButton}>
+            </a>
+            <a href="/ingredients" className={styles.ghostButton}>
               Browse Ingredients Guide
-            </button>
+            </a>
           </div>
           <p style={{ fontSize: '14px', color: 'var(--text-light)' }}>
             Free access to basic recipes • Premium features available • Join 50,000+ active cooks
