@@ -1,36 +1,99 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Grow a Garden Recipes - 网站复刻项目
 
-## Getting Started
+这是一个用于学习研究目的的 https://growagarden-recipes.com/ 网站复刻项目。
 
-First, run the development server:
+## 快速开始
 
+### 1. 安装依赖
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npx playwright install chromium
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. 同步最新网站内容
+```powershell
+# 下载原始 HTML
+(Invoke-WebRequest -Uri https://growagarden-recipes.com/ -UseBasicParsing).Content | Out-File growagarden_home.html -Encoding utf8
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+# 提取 head 和 body 片段
+node scripts/extractHtml.js
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# 生成静态快照
+node scripts/updateOriginalHtml.js
 
-## Learn More
+# 更新 SEO 资源
+node scripts/updateSeoAssets.js
+```
 
-To learn more about Next.js, take a look at the following resources:
+### 3. 运行开发服务器
+```bash
+npm run dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+访问 http://localhost:3000 查看复刻的网站。
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 4. 构建生产版本
+```bash
+npm run build
+npm run start
+```
 
-## Deploy on Vercel
+## 视觉对比测试
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 捕获截图
+确保开发服务器正在运行（`npm run start`），然后：
+```bash
+node scripts/captureScreenshots.js
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+这会生成：
+- `screenshots/original.png` - 原始网站截图
+- `screenshots/clone.png` - 本地复刻截图
+
+### 对比差异
+```bash
+node scripts/compareScreenshots.js
+```
+
+生成差异图像并显示像素差异百分比。
+
+### 分析差异区域
+```bash
+node scripts/analyzeRawDiff.js
+```
+
+显示差异像素的边界框位置。
+
+## 项目结构
+
+```
+├── app/
+│   ├── layout.tsx      # 注入原始 <head> 内容
+│   ├── page.tsx        # 渲染原始 <body> 内容
+│   └── globals.css     # 全局样式
+├── data/
+│   ├── home-head.html  # 提取的 head 内容
+│   └── home-body.html  # 提取的 body 内容
+├── public/
+│   ├── original.html   # 完整的原始 HTML 快照
+│   ├── robots.txt      # SEO 资源
+│   └── sitemap.xml     # SEO 资源
+├── scripts/
+│   ├── extractHtml.js           # 提取 HTML 片段
+│   ├── updateOriginalHtml.js    # 生成完整快照
+│   ├── updateSeoAssets.js       # 更新 SEO 文件
+│   ├── captureScreenshots.js    # 捕获截图
+│   ├── compareScreenshots.js    # 对比截图
+│   └── analyzeRawDiff.js        # 分析差异
+└── REPLICATION.md      # 详细的复刻流程文档
+```
+
+## 注意事项
+
+- 原始网站可能包含动态内容（广告、分析等），因此即使禁用 JavaScript，也可能存在 2-3% 的视觉差异
+- 本项目仅用于学习研究目的
+- 定期运行同步脚本以保持内容最新
+
+## 详细文档
+
+查看 [REPLICATION.md](./REPLICATION.md) 了解完整的复刻工作流程和技术细节。
