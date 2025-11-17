@@ -1,3 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --garden-deep: #0f2b23;
+  --garden-forest: #195c43;
+  --garden-green: #2eaf6a;
+  --garden-lime: #b4f4a3;
+  --garden-soil: #dabb92;
+  --garden-cream: #f4f1ea;
+  --garden-ink: #0b1a16;
+  --garden-muted: #54655c;
+  --accent-red: #f45d48;
+  --accent-gold: #fbcf67;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at top left, #163529, #07110f);
+  color: var(--garden-cream);
+  min-height: 100vh;
+  font-family: var(--font-inter), 'Inter', 'Microsoft YaHei', 'PingFang SC', 'Segoe UI', sans-serif;
+}
