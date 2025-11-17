@@ -1,26 +1,51 @@
 const fs = require('fs');
 const path = require('path');
 
-// 读取下载的 HTML 文件
-const htmlPath = path.join(__dirname, '..', 'growagarden_home.html');
-const html = fs.readFileSync(htmlPath, 'utf8');
+const pages = [
+  {
+    name: 'home',
+    source: 'growagarden_home.html',
+    headOutput: 'home-head.html',
+    bodyOutput: 'home-body.html',
+  },
+  {
+    name: 'recipes',
+    source: 'growagarden_recipes.html',
+    headOutput: 'recipes-head.html',
+    bodyOutput: 'recipes-body.html',
+  },
+];
 
-// 提取 <head> 内容
-const headMatch = html.match(/<head[^>]*>([\s\S]*?)<\/head>/i);
-const headContent = headMatch ? headMatch[1] : '';
-
-// 提取 <body> 内容
-const bodyMatch = html.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
-const bodyContent = bodyMatch ? bodyMatch[1] : '';
-
-// 创建 data 目录
 const dataDir = path.join(__dirname, '..', 'data');
 if (!fs.existsSync(dataDir)) {
   fs.mkdirSync(dataDir, { recursive: true });
 }
 
-// 保存提取的内容
-fs.writeFileSync(path.join(dataDir, 'home-head.html'), headContent, 'utf8');
-fs.writeFileSync(path.join(dataDir, 'home-body.html'), bodyContent, 'utf8');
+const headRegex = /<head[^>]*>([\s\S]*?)<\/head>/i;
+const bodyRegex = /<body[^>]*>([\s\S]*?)<\/body>/i;
 
-console.log('✓ HTML fragments extracted to data/ directory');
+pages.forEach((page) => {
+  const htmlPath = path.join(__dirname, '..', page.source);
+
+  if (!fs.existsSync(htmlPath)) {
+    console.warn(`Skipped ${page.name}: ${page.source} not found. Download it before running this script.`);
+    return;
+  }
+
+  const html = fs.readFileSync(htmlPath, 'utf8');
+  const headMatch = html.match(headRegex);
+  const bodyMatch = html.match(bodyRegex);
+
+  fs.writeFileSync(
+    path.join(dataDir, page.headOutput),
+    headMatch ? headMatch[1] : '',
+    'utf8'
+  );
+  fs.writeFileSync(
+    path.join(dataDir, page.bodyOutput),
+    bodyMatch ? bodyMatch[1] : '',
+    'utf8'
+  );
+
+  console.log(`[${page.name}] HTML fragments extracted to data/${page.headOutput} & data/${page.bodyOutput}`);
+});

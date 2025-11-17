@@ -2,78 +2,91 @@ const https = require('https');
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
-const { URL } = require('url');
 
 const baseUrl = 'https://growagarden-recipes.com';
 
 function downloadFile(url, outputPath) {
   return new Promise((resolve, reject) => {
     const protocol = url.startsWith('https') ? https : http;
-    
-    protocol.get(url, (res) => {
-      if (res.statusCode === 301 || res.statusCode === 302) {
-        // 处理重定向
-        downloadFile(res.headers.location, outputPath).then(resolve).catch(reject);
-        return;
-      }
-      
-      if (res.statusCode !== 200) {
-        reject(new Error(`Failed to fetch ${url}: ${res.statusCode}`));
-        return;
-      }
-      
-      const dir = path.dirname(outputPath);
-      if (!fs.existsSync(dir)) {
-        fs.mkdirSync(dir, { recursive: true });
-      }
-      
-      const fileStream = fs.createWriteStream(outputPath);
-      res.pipe(fileStream);
-      
-      fileStream.on('finish', () => {
-        fileStream.close();
-        resolve();
-      });
-      
-      fileStream.on('error', reject);
-    }).on('error', reject);
+
+    protocol
+      .get(url, (res) => {
+        if (res.statusCode === 301 || res.statusCode === 302) {
+          downloadFile(res.headers.location, outputPath).then(resolve).catch(reject);
+          return;
+        }
+
+        if (res.statusCode !== 200) {
+          reject(new Error(`Failed to fetch ${url}: ${res.statusCode}`));
+          return;
+        }
+
+        const dir = path.dirname(outputPath);
+        if (!fs.existsSync(dir)) {
+          fs.mkdirSync(dir, { recursive: true });
+        }
+
+        const fileStream = fs.createWriteStream(outputPath);
+        res.pipe(fileStream);
+
+        fileStream.on('finish', () => {
+          fileStream.close();
+          resolve();
+        });
+
+        fileStream.on('error', reject);
+      })
+      .on('error', reject);
   });
 }
 
 async function downloadAssets() {
-  const headPath = path.join(__dirname, '..', 'data', 'home-head.html');
-  const headContent = fs.readFileSync(headPath, 'utf8');
-  
-  // 提取所有资源链接
+  const dataDir = path.join(__dirname, '..', 'data');
+  const headFiles = ['home-head.html', 'recipes-head.html'];
   const assetRegex = /(?:src|href)=["']([^"']+)["']/g;
-  const matches = [...headContent.matchAll(assetRegex)];
-  
-  const publicDir = path.join(__dirname, '..', 'public');
-  
-  for (const match of matches) {
-    let assetUrl = match[1];
-    
-    // 跳过外部脚本和数据 URL
-    if (assetUrl.startsWith('http') || assetUrl.startsWith('data:') || assetUrl.startsWith('//')) {
+  const assets = new Set();
+
+  for (const file of headFiles) {
+    const headPath = path.join(dataDir, file);
+
+    if (!fs.existsSync(headPath)) {
+      console.warn(`Skipped asset scan for ${file}: file not found.`);
       continue;
     }
-    
-    // 处理相对路径
-    if (assetUrl.startsWith('/')) {
-      const fullUrl = baseUrl + assetUrl;
-      const localPath = path.join(publicDir, assetUrl);
-      
+
+    const headContent = fs.readFileSync(headPath, 'utf8');
+    for (const match of headContent.matchAll(assetRegex)) {
+      assets.add(match[1]);
+    }
+  }
+
+  if (!assets.size) {
+    console.log('No head fragments found. Run scripts/extractHtml.js first.');
+    return;
+  }
+
+  const publicDir = path.join(__dirname, '..', 'public');
+
+  for (const assetPath of assets) {
+    if (assetPath.startsWith('http') || assetPath.startsWith('data:') || assetPath.startsWith('//')) {
+      continue;
+    }
+
+    if (assetPath.startsWith('/')) {
+      const fullUrl = baseUrl + assetPath;
+      const localPath = path.join(publicDir, assetPath);
+
       try {
-        console.log(`Downloading ${assetUrl}...`);
+        console.log(`Downloading ${assetPath}...`);
         await downloadFile(fullUrl, localPath);
-        console.log(`✓ Downloaded ${assetUrl}`);
+        console.log(`✓ Downloaded ${assetPath}`);
       } catch (err) {
-        console.log(`⚠ Failed to download ${assetUrl}: ${err.message}`);
+        console.log(`✗ Failed to download ${assetPath}: ${err.message}`);
       }
     }
   }
-  
-  console.log('\n✓ Asset download complete');
+
+  console.log('\nAsset download complete');
 }
 
 downloadAssets().catch(console.error);
