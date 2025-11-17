@@ -1,6 +1,8 @@
 'use client';
 
 import Link from 'next/link';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 import styles from './page.module.css';
 
 const recipeData = {
@@ -44,28 +46,7 @@ const relatedRecipes = [
 export default function SoupRecipePage() {
   return (
     <div className={styles.page}>
-      <header className={styles.header}>
-        <div className={styles.container}>
-          <div className={styles.headerContent}>
-            <Link href="/" className={styles.logoGroup}>
-              <div className={styles.logoMark}>GG</div>
-              <span className={styles.logoTitle}>Grow a Garden Recipes</span>
-            </Link>
-
-            <nav className={styles.nav}>
-              <Link href="/">Home</Link>
-              <Link href="/recipes">Recipes</Link>
-              <Link href="/ingredients">Ingredients</Link>
-              <Link href="/rarity">Rarity</Link>
-              <Link href="/rewards">Rewards</Link>
-            </nav>
-
-            <Link href="/cooking" className={styles.ctaButton}>
-              Cooking Guide
-            </Link>
-          </div>
-        </div>
-      </header>
+      <Header />
 
       <main className={styles.main}>
         <div className={styles.container}>
@@ -184,80 +165,7 @@ export default function SoupRecipePage() {
         </div>
       </main>
 
-      <footer className={styles.footer}>
-        <div className={styles.container}>
-          <div className={styles.footerGrid}>
-            <div className={styles.footerSection}>
-              <h3>Grow a Garden Recipes</h3>
-              <p>
-                Your complete guide to cooking in Roblox Grow a Garden. Find recipes, ingredients,
-                and maximize your rewards.
-              </p>
-            </div>
-
-            <div className={styles.footerSection}>
-              <h3>Recipes</h3>
-              <ul>
-                <li>
-                  <Link href="/recipes">All Recipes</Link>
-                </li>
-                <li>
-                  <Link href="/recipes/fast">Fast Recipes</Link>
-                </li>
-                <li>
-                  <Link href="/recipes/high-reward">High-Reward</Link>
-                </li>
-                <li>
-                  <Link href="/recipes/beginners">Beginner-Friendly</Link>
-                </li>
-              </ul>
-            </div>
-
-            <div className={styles.footerSection}>
-              <h3>Game Info</h3>
-              <ul>
-                <li>
-                  <Link href="/cooking">Cooking Guide</Link>
-                </li>
-                <li>
-                  <Link href="/ingredients">Ingredients</Link>
-                </li>
-                <li>
-                  <Link href="/rarity">Rarity Tiers</Link>
-                </li>
-                <li>
-                  <Link href="/rewards">Rewards</Link>
-                </li>
-              </ul>
-            </div>
-
-            <div className={styles.footerSection}>
-              <h3>Community</h3>
-              <ul>
-                <li>
-                  <Link href="/faq">FAQ</Link>
-                </li>
-                <li>
-                  <Link href="/submit-correction">Submit Correction</Link>
-                </li>
-                <li>
-                  <Link href="/changelog">Changelog</Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div className={styles.footerBottom}>
-            <p>© 2024 Grow a Garden Recipes. Community-driven recipe database.</p>
-            <div className={styles.footerLinks}>
-              <Link href="/privacy">Privacy</Link>
-              <Link href="/terms">Terms</Link>
-              <Link href="/cookies">Cookies</Link>
-              <Link href="/dmca">DMCA</Link>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

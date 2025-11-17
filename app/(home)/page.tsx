@@ -1,6 +1,8 @@
 'use client';
 
 import type { FormEvent } from 'react';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 import styles from './page.module.css';
 
 const navLinks = [
@@ -234,25 +236,7 @@ export default function HomePage() {
 
   return (
     <div className={styles.page}>
-      <header className={styles.header}>
-        <div className={styles.shell}>
-          <div className={styles.logoGroup}>
-            <div className={styles.logoMark}>GG</div>
-            <div>
-              <p className={styles.logoTitle}>Grow a Garden Recipes</p>
-              <p className={styles.logoMeta}>Community Data Hub</p>
-            </div>
-          </div>
-
-          <nav className={styles.navLinks}>
-            {navLinks.map((link) => (
-              <a key={link.href} href={link.href}>
-                {link.label}
-              </a>
-            ))}
-          </nav>
-        </div>
-      </header>
+      <Header />
 
       <main className={styles.shell}>
         <section className={styles.hero} id="hero">
@@ -592,9 +576,7 @@ export default function HomePage() {
         </section>
       </main>
 
-      <footer className={styles.footer}>
-        Grow a Garden Recipe Guide · 2025 © Community-Driven Roblox Garden Guide
-      </footer>
+      <Footer />
     </div>
   );
 }
