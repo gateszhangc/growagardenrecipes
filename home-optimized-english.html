@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grow a Garden Recipes Guide - Complete Cooking Update Tutorial 2025</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Fresh, modern color scheme */
+            --primary-green: #2ecc71;
+            --primary-dark: #27ae60;
+            --accent-orange: #ff6b6b;
+            --accent-yellow: #ffd93d;
+            --bg-light: #f8fffe;
+            --bg-card: #ffffff;
+            --text-dark: #2c3e50;
+            --text-gray: #5a6c7d;
+            --text-light: #95a5a6;
+            --border-light: #e8f5e9;
+            --shadow-sm: 0 2px 8px rgba(46, 204, 113, 0.1);
+            --shadow-md: 0 4px 16px rgba(46, 204, 113, 0.15);
+            --shadow-lg: 0 8px 32px rgba(46, 204, 113, 0.2);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', sans-serif;
+            background: linear-gradient(135deg, #f8fffe 0%, #e8f8f5 100%);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-light);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 600;
+            font-size: 18px;
+            color: var(--text-dark);
+        }
+
+        .logo-mark {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--primary-green), var(--accent-yellow));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: white;
+            font-size: 18px;
+            letter-spacing: 1px;
+            box-shadow: var(--shadow-md);
+        }
+
+        nav {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            padding: 8px 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--text-gray);
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            background: var(--border-light);
+            color: var(--primary-green);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-text {
+            animation: fadeInUp 0.8s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-title {
+            display: inline-block;
+            padding: 6px 12px;
+            background: linear-gradient(135deg, var(--primary-green), var(--primary-dark));
+            color: white;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--primary-green), var(--accent-yellow));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 16px;
+            color: var(--text-gray);
+            margin-bottom: 32px;
+            line-height: 1.8;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-green), var(--primary-dark));
+            color: white;
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-ghost {
+            background: white;
+            color: var(--primary-green);
+            border: 2px solid var(--primary-green);
+        }
+
+        .btn-ghost:hover {
+            background: var(--border-light);
+        }
+
+        /* Hero Panel */
+        .hero-panel {
+            background: white;
+            border-radius: 24px;
+            padding: 32px;
+            box-shadow: var(--shadow-lg);
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 8px 16px;
+            background: linear-gradient(135deg, var(--accent-yellow), #ffed4e);
+            color: var(--text-dark);
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero-panel h3 {
+            font-size: 24px;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+        }
+
+        .hero-panel > p {
+            color: var(--text-gray);
+            margin-bottom: 24px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .stat {
+            background: linear-gradient(135deg, var(--border-light), #f0fdf4);
+            padding: 20px;
+            border-radius: 16px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .stat:hover {
+            transform: translateY(-4px);
+        }
+
+        .stat strong {
+            display: block;
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary-green);
+            margin-bottom: 4px;
+        }
+
+        .stat span {
+            font-size: 13px;
+            color: var(--text-gray);
+        }
+
+        /* Section Card */
+        .section-card {
+            background: white;
+            border-radius: 24px;
+            padding: 48px;
+            margin-bottom: 32px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .section-card h2 {
+            font-size: 32px;
+            color: var(--text-dark);
+            margin-bottom: 32px;
+        }
+
+        .section-card h3 {
+            font-size: 24px;
+            color: var(--text-dark);
+            margin-bottom: 16px;
+        }
+
+        .section-card > p {
+            color: var(--text-gray);
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 16px;
+            max-width: 800px;
+        }
+
+        /* Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .category-card {
+            background: linear-gradient(135deg, #ffffff, #f8fffe);
+            border: 2px solid var(--border-light);
+            border-radius: 16px;
+            padding: 24px;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .category-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-green);
+        }
+
+        .category-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-green), var(--primary-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: white;
+            box-shadow: var(--shadow-md);
+        }
+
+        .category-card h3 {
+            font-size: 18px;
+            margin: 0;
+            color: var(--text-dark);
+        }
+
+        .category-card p {
+            color: var(--text-gray);
+            font-size: 14px;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .category-card span {
+            color: var(--primary-green);
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        /* Pro Tips */
+        .tip-card {
+            text-align: center;
+        }
+
+        .tip-icon {
+            width: 56px;
+            height: 56px;
+            margin: 0 auto 16px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .tip-card:nth-child(1) .tip-icon {
+            background: linear-gradient(135deg, var(--primary-green), var(--primary-dark));
+            color: white;
+        }
+
+        .tip-card:nth-child(2) .tip-icon {
+            background: linear-gradient(135deg, var(--accent-yellow), #ffed4e);
+        }
+
+        .tip-card:nth-child(3) .tip-icon {
+            background: linear-gradient(135deg, var(--accent-orange), #ff8787);
+            color: white;
+        }
+
+        .tip-card:nth-child(4) .tip-icon {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: white;
+        }
+
+        /* Featured Categories */
+        .featured-card {
+            position: relative;
+        }
+
+        .featured-card h3::before {
+            content: attr(data-icon);
+            margin-right: 8px;
+        }
+
+        .featured-card.highlight {
+            border-color: var(--primary-green);
+            background: linear-gradient(135deg, #e8f8f5, #ffffff);
+        }
+
+        .featured-card.accent {
+            border-color: var(--accent-yellow);
+            background: linear-gradient(135deg, #fffef0, #ffffff);
+        }
+
+        /* Explore Categories */
+        .explore-card {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .explore-card .category-icon {
+            flex-shrink: 0;
+        }
+
+        .explore-card.green {
+            background: linear-gradient(135deg, #dcfce7, #ffffff);
+            border-color: var(--primary-green);
+        }
+
+        .explore-card.yellow {
+            background: linear-gradient(135deg, #fef9c3, #ffffff);
+            border-color: var(--accent-yellow);
+        }
+
+        .explore-card.blue {
+            background: linear-gradient(135deg, #dbeafe, #ffffff);
+            border-color: #3b82f6;
+        }
+
+        .explore-card.purple {
+            background: linear-gradient(135deg, #f3e8ff, #ffffff);
+            border-color: #a855f7;
+        }
+
+        .explore-card .category-icon {
+            width: 48px;
+            height: 48px;
+            font-size: 20px;
+        }
+
+        .explore-card h3 {
+            font-size: 16px;
+            margin: 0 0 2px 0;
+        }
+
+        .explore-card span {
+            font-size: 12px;
+        }
+
+        .explore-card p {
+            font-size: 13px;
+            margin: 4px 0 0 0;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 24px;
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                padding: 40px 0;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .section-card {
+                padding: 32px 24px;
+            }
+
+            .nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="nav">
+                <div class="logo">
+                    <div class="logo-mark">GG</div>
+                    Grow a Garden Recipes
+                </div>
+                <nav>
+                    <a href="#">Home</a>
+                    <a href="#">Recipes</a>
+                    <a href="#">Ingredients</a>
+                    <a href="#">Rarity</a>
+                    <a href="#">Rewards</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero container">
+            <div class="hero-text">
+                <span class="section-title">Hero</span>
+                <h1>
+                    Master Every <span>Grow a Garden Recipe</span>
+                </h1>
+                <p>
+                    Your ultimate guide to cooking success in Grow a Garden! Discover every verified recipe, track pot colors, and unlock
+                    legendary rewards with community-tested strategies.
+                </p>
+                <div class="hero-ctas">
+                    <button class="btn btn-primary">Browse All Recipes</button>
+                    <button class="btn btn-ghost">Submit Correction</button>
+                </div>
+            </div>
+
+            <div class="hero-panel">
+                <span class="badge">Live Tracker</span>
+                <h3>Today's Highlights</h3>
+                <p>
+                    57 new patch recipes verified. Pot colors calibrated by 50k+ players.
+                </p>
+                <div class="stats">
+                    <div class="stat">
+                        <strong>214</strong>
+                        <span>Recipes</span>
+                    </div>
+                    <div class="stat">
+                        <strong>92%</strong>
+                        <span>Verification rate</span>
+                    </div>
+                    <div class="stat">
+                        <strong>28</strong>
+                        <span>Pot colors</span>
+                    </div>
+                    <div class="stat">
+                        <strong>12h</strong>
+                        <span>Update cycle</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- What is Cooking Section -->
+        <section class="section-card container">
+            <h2>What is Cooking in Grow a Garden?</h2>
+            <p>
+                Cooking in Grow a Garden is the heart of your virtual farming adventure, where creativity meets strategy. Unlike traditional farming games, grow a garden recipes require careful planning, timing, and ingredient management.
+            </p>
+            <p>
+                Each recipe combines specific ingredients in a cooking pot, with different pot water colors indicating recipe types. Cook times range from quick 4-minute dishes to elaborate 45-minute feasts, each offering unique rewards like Pet Eggs, XP boosts, and rare materials.
+            </p>
+            <p>
+                Master the art of timing your harvests, understanding rarity tiers, and chaining recipes together to maximize your garden's potential and unlock legendary rewards.
+            </p>
+        </section>
+
+        <!-- Pro Tips Section -->
+        <section class="section-card container">
+            <h2>Pro Tips for Better Rewards</h2>
+            <div class="grid">
+                <div class="category-card tip-card">
+                    <div class="tip-icon">⏰</div>
+                    <h3>Time Your Harvests</h3>
+                    <p>Plant ingredients based on cooking schedules to maximize efficiency and reduce waiting time.</p>
+                </div>
+                <div class="category-card tip-card">
+                    <div class="tip-icon">⭐</div>
+                    <h3>Mix Rarity Levels</h3>
+                    <p>Combine common and rare ingredients strategically to increase your chances of bonus rewards.</p>
+                </div>
+                <div class="category-card tip-card">
+                    <div class="tip-icon">🎨</div>
+                    <h3>Master the Pot Colors</h3>
+                    <p>Different pot water colors indicate specific recipe types - learn the patterns for faster cooking.</p>
+                </div>
+                <div class="category-card tip-card">
+                    <div class="tip-icon">🔗</div>
+                    <h3>Plan Recipe Chains</h3>
+                    <p>Some recipes unlock ingredients for others - plan your cooking sequence for maximum progression.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Recipes by Category -->
+        <section class="section-card container">
+            <h2>Featured Recipes by Category</h2>
+            <div class="grid">
+                <div class="category-card featured-card highlight">
+                    <h3 data-icon="🥧">Pie Recipes</h3>
+                    <p>Sweet and savory pies</p>
+                    <span>3 recipes available</span>
+                </div>
+                <div class="category-card featured-card accent">
+                    <h3 data-icon="🍔">Burger Recipes</h3>
+                    <p>Hearty and filling burgers</p>
+                    <span>3 recipes available</span>
+                </div>
+                <div class="category-card featured-card">
+                    <h3 data-icon="🍲">Soup Recipes</h3>
+                    <p>Warm and comforting soups</p>
+                    <span>3 recipes available</span>
+                </div>
+                <div class="category-card featured-card">
+                    <h3 data-icon="🥤">Drink Recipes</h3>
+                    <p>Refreshing beverages</p>
+                    <span>3 recipes available</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Explore More Recipe Categories -->
+        <section class="section-card container">
+            <h2>Explore More Recipe Categories</h2>
+            <div class="grid">
+                <div class="category-card explore-card green">
+                    <div class="category-icon">⏱</div>
+                    <div>
+                        <h3>Fast Recipes</h3>
+                        <span>15 recipes available</span>
+                        <p>Speed-focused dishes ready in under 5 minutes.</p>
+                    </div>
+                </div>
+                <div class="category-card explore-card yellow">
+                    <div class="category-icon">🏆</div>
+                    <div>
+                        <h3>High Rewards</h3>
+                        <span>12 recipes available</span>
+                        <p>Legendary combos optimized for pet eggs and XP bursts.</p>
+                    </div>
+                </div>
+                <div class="category-card explore-card blue">
+                    <div class="category-icon">🎯</div>
+                    <div>
+                        <h3>Beginner Friendly</h3>
+                        <span>8 recipes available</span>
+                        <p>Low-ingredient meals with guaranteed success.</p>
+                    </div>
+                </div>
+                <div class="category-card explore-card purple">
+                    <div class="category-icon">👨‍🍳</div>
+                    <div>
+                        <h3>All Recipes</h3>
+                        <span>38 recipes available</span>
+                        <p>The full verified database with filters by rarity, pot color and reward.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        © 2024 Grow a Garden Recipes. Community-driven recipe database.
+    </footer>
+</body>
+</html>

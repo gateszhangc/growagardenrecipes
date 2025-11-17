@@ -4,94 +4,177 @@ import type { FormEvent } from 'react';
 import styles from './page.module.css';
 
 const navLinks = [
-  { label: '食谱搜索', href: '#finder' },
-  { label: '分类', href: '#categories' },
-  { label: '热门', href: '#popular' },
-  { label: '进阶指南', href: '#howto' },
-  { label: '社区', href: '#community' },
+  { label: 'Home', href: '#hero' },
+  { label: 'Recipes', href: '#categories' },
+  { label: 'Ingredients', href: '#finder' },
+  { label: 'Rarity', href: '#popular' },
+  { label: 'Rewards', href: '#howto' },
 ];
 
 const heroStats = [
-  { value: '214', label: '收录配方' },
-  { value: '92%', label: '社区验证率' },
-  { value: '28', label: '锅水颜色' },
-  { value: '12 小时', label: '更新频率' },
+  { value: '214', label: 'Recipes' },
+  { value: '92%', label: 'Verification rate' },
+  { value: '28', label: 'Pot colors' },
+  { value: '12h', label: 'Update cycle' },
 ];
 
 const filters = [
-  { label: '传奇', active: true },
-  { label: '史诗', active: false },
-  { label: '常见', active: false },
-  { label: '红锅水', active: true },
-  { label: '蓝锅水', active: false },
-  { label: '宠蛋掉落', active: true },
-  { label: '经验爆发', active: false },
+  { label: 'Legendary', active: true },
+  { label: 'Epic', active: false },
+  { label: 'Common', active: false },
+  { label: 'Red Pot', active: true },
+  { label: 'Blue Pot', active: false },
+  { label: 'Pet Egg Drop', active: true },
+  { label: 'XP Burst', active: false },
 ];
 
 const categories = [
   {
-    label: '极速菜谱',
-    description: '15 道 4 分钟内即可完成的料理，适合刷任务。',
+    label: 'Fast Recipes',
+    description: '15 recipes ready in under 4 minutes, perfect for grinding.',
     tone: 'highlight' as const,
   },
   {
-    label: '高奖励链路',
-    description: '12 道传奇组合，配好稀有度和锅色即可保证宠蛋。',
+    label: 'High Reward Chains',
+    description: '12 legendary combos optimized for pet eggs with rarity and pot color.',
     tone: 'accent' as const,
   },
   {
-    label: '新手花园',
-    description: '8 道零稀有配方，附赠农田布局示意图。',
+    label: 'Beginner Garden',
+    description: '8 zero-rarity recipes with farm layout diagrams included.',
   },
   {
-    label: '完整图鉴',
-    description: '214 道配方 + 28 种锅水颜色，随时筛选。',
+    label: 'Complete Collection',
+    description: '214 recipes + 28 pot water colors, filter anytime.',
   },
 ];
 
 const popularRecipes = [
   {
-    name: '比萨（红锅水）',
-    rarity: '传奇',
+    name: 'Pizza (Red Pot)',
+    rarity: 'Legendary',
     duration: '04:30',
-    description: '小麦 × 番茄 × 奶酪 · 宠蛋 + 经验',
+    description: 'Wheat × Tomato × Cheese · Pet Egg + XP',
     tone: 'legendary' as const,
   },
   {
-    name: '蘑菇浓汤（紫锅水）',
-    rarity: '史诗',
+    name: 'Mushroom Soup (Purple Pot)',
+    rarity: 'Epic',
     duration: '25:00',
-    description: '蘑菇 × 水 × 香料 · 高概率爆经验',
+    description: 'Mushroom × Water × Spice · High XP burst chance',
     tone: 'epic' as const,
   },
   {
-    name: '黄金饮料（金锅水）',
-    rarity: '史诗',
+    name: 'Golden Drink (Gold Pot)',
+    rarity: 'Epic',
     duration: '30:00',
-    description: '水果拼盘 × 能量草 · 掉落稀有材料',
+    description: 'Fruit Mix × Energy Herb · Rare material drops',
     tone: 'epic' as const,
   },
   {
-    name: '苹果派（红锅水）',
-    rarity: '传奇',
+    name: 'Apple Pie (Red Pot)',
+    rarity: 'Legendary',
     duration: '45:00',
-    description: '苹果 × 糖 × 面团 · 适合冲榜',
+    description: 'Apple × Sugar × Dough · Perfect for leaderboards',
     tone: 'legendary' as const,
   },
 ];
 
 const steps = [
   {
-    title: '规划花园',
-    description: '根据目标菜谱预留土地，确保稀有作物轮换。',
+    title: 'Plan Your Garden',
+    description: 'Reserve land based on target recipes, ensure rare crop rotation.',
   },
   {
-    title: '把握时间',
-    description: '利用“种植 → 收获 → 烹饪”时间轴，避免断料。',
+    title: 'Master Timing',
+    description: 'Use the "Plant → Harvest → Cook" timeline to avoid ingredient shortages.',
   },
   {
-    title: '链式推进',
-    description: '用常见菜换稀有材料，再冲击传奇奖励。',
+    title: 'Chain Progression',
+    description: 'Trade common dishes for rare materials, then push for legendary rewards.',
+  },
+];
+
+const proTips = [
+  {
+    icon: '⏰',
+    title: 'Time Your Harvests',
+    description: 'Plant ingredients based on cooking schedules to maximize efficiency and reduce waiting time.',
+  },
+  {
+    icon: '⭐',
+    title: 'Mix Rarity Levels',
+    description: 'Combine common and rare ingredients strategically to increase your chances of bonus rewards.',
+  },
+  {
+    icon: '🎨',
+    title: 'Master the Pot Colors',
+    description: 'Different pot water colors indicate specific recipe types - learn the patterns for faster cooking.',
+  },
+  {
+    icon: '🔗',
+    title: 'Plan Recipe Chains',
+    description: 'Some recipes unlock ingredients for others - plan your cooking sequence for maximum progression.',
+  },
+];
+
+const featuredCategories = [
+  {
+    icon: '🥧',
+    name: 'Pie Recipes',
+    description: 'Sweet and savory pies',
+    count: 3,
+    tone: 'highlight' as const,
+  },
+  {
+    icon: '🍔',
+    name: 'Burger Recipes',
+    description: 'Hearty and filling burgers',
+    count: 3,
+    tone: 'accent' as const,
+  },
+  {
+    icon: '🍲',
+    name: 'Soup Recipes',
+    description: 'Warm and comforting soups',
+    count: 3,
+  },
+  {
+    icon: '🥤',
+    name: 'Drink Recipes',
+    description: 'Refreshing beverages',
+    count: 3,
+  },
+];
+
+const exploreCategories = [
+  {
+    icon: '⏱',
+    name: 'Fast Recipes',
+    count: 15,
+    description: 'Speed-focused dishes ready in under 5 minutes.',
+    color: 'green' as const,
+  },
+  {
+    icon: '🏆',
+    name: 'High Rewards',
+    count: 12,
+    description: 'Legendary combos optimized for pet eggs and XP bursts.',
+    color: 'yellow' as const,
+  },
+  {
+    icon: '🎯',
+    name: 'Beginner Friendly',
+    count: 8,
+    description: 'Low-ingredient meals with guaranteed success.',
+    color: 'blue' as const,
+  },
+  {
+    icon: '👨‍🍳',
+    name: 'All Recipes',
+    count: 38,
+    description: 'The full verified database with filters by rarity, pot color and reward.',
+    color: 'purple' as const,
   },
 ];
 
@@ -107,8 +190,8 @@ export default function HomePage() {
           <div className={styles.logoGroup}>
             <div className={styles.logoMark}>GG</div>
             <div>
-              <p className={styles.logoTitle}>Grow a Garden 花园全食谱</p>
-              <p className={styles.logoMeta}>社区数据枢纽</p>
+              <p className={styles.logoTitle}>Grow a Garden Recipes</p>
+              <p className={styles.logoMeta}>Community Data Hub</p>
             </div>
           </div>
 
@@ -125,28 +208,28 @@ export default function HomePage() {
       <main className={styles.shell}>
         <section className={styles.hero} id="hero">
           <div className={styles.heroText}>
-            <p className={styles.heroEyebrow}>2025 新版本</p>
+            <p className={styles.heroEyebrow}>2025 Update</p>
             <h1>
-              掌握 <span>Grow a Garden</span> 全部料理
+              Master Every <span>Grow a Garden Recipe</span>
             </h1>
             <p className={styles.heroBody}>
-              以花园灵感打造的新 UI，在一个页面内完成检索、筛选、学习。通过实时统计与过滤器，助力核心玩家在 15
-              秒内找到下一道大厨级菜式。
+              Your ultimate guide to cooking success in Grow a Garden! Discover every verified recipe, track pot colors, and unlock
+              legendary rewards with community-tested strategies.
             </p>
             <div className={styles.heroCtas}>
               <button type="button" className={styles.primaryButton}>
-                打开食谱查找器
+                Browse All Recipes
               </button>
               <button type="button" className={styles.ghostButton}>
-                查看更新日志
+                Submit Correction
               </button>
             </div>
           </div>
 
           <div className={styles.heroVisual}>
-            <div className={styles.heroBadge}>数据实时更新</div>
-            <h3>今日亮点</h3>
-            <p>57 道新补丁配方加入，锅水颜色与稀有度已校验。</p>
+            <div className={styles.heroBadge}>Live Tracker</div>
+            <h3>Today's Highlights</h3>
+            <p>57 new patch recipes verified. Pot colors calibrated by 50k+ players.</p>
             <div className={styles.statGrid}>
               {heroStats.map((stat) => (
                 <div key={stat.label} className={styles.statCard}>
@@ -158,26 +241,58 @@ export default function HomePage() {
           </div>
         </section>
 
+        <section className={styles.section} id="what-is-cooking">
+          <div className={styles.sectionHeader}>
+            <h2>What is Cooking in Grow a Garden?</h2>
+          </div>
+          <div className={styles.sectionContent}>
+            <p>
+              Cooking in Grow a Garden is the heart of your virtual farming adventure, where creativity meets strategy. Unlike traditional farming games, grow a garden recipes require careful planning, timing, and ingredient management.
+            </p>
+            <p>
+              Each recipe combines specific ingredients in a cooking pot, with different pot water colors indicating recipe types. Cook times range from quick 4-minute dishes to elaborate 45-minute feasts, each offering unique rewards like Pet Eggs, XP boosts, and rare materials.
+            </p>
+            <p>
+              Master the art of timing your harvests, understanding rarity tiers, and chaining recipes together to maximize your garden's potential and unlock legendary rewards.
+            </p>
+          </div>
+        </section>
+
+        <section className={styles.section} id="pro-tips">
+          <div className={styles.sectionHeader}>
+            <h2>Pro Tips for Better Rewards</h2>
+          </div>
+          <div className={styles.grid}>
+            {proTips.map((tip) => (
+              <article key={tip.title} className={`${styles.card} ${styles.tipCard}`}>
+                <div className={styles.tipIcon}>{tip.icon}</div>
+                <h3>{tip.title}</h3>
+                <p>{tip.description}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
         <section className={styles.section} id="finder">
           <div className={styles.sectionHeader}>
             <div>
-              <p className={styles.eyebrow}>食谱查找器</p>
-              <h2>快速查找食谱</h2>
+              <p className={styles.eyebrow}>Recipe Finder</p>
+              <h2>Quick Recipe Search</h2>
             </div>
             <p className={styles.sectionBody}>
-              输入关键字或组合过滤条件，即时获得推荐料理与奖励预估。
+              Enter keywords or combine filter conditions to instantly get recommended dishes and reward estimates.
             </p>
           </div>
           <form className={styles.finderForm} onSubmit={handleSearch}>
-            <input type="search" placeholder="搜索菜名、食材或奖励…" aria-label="搜索食谱" />
-            <select aria-label="筛选烹饪时长">
-              <option>烹饪时长 · 全部</option>
-              <option>0 - 10 分钟</option>
-              <option>10 - 30 分钟</option>
-              <option>30 分钟以上</option>
+            <input type="search" placeholder="Search recipe name, ingredients or rewards…" aria-label="Search recipes" />
+            <select aria-label="Filter by cooking time">
+              <option>Cooking Time · All</option>
+              <option>0 - 10 minutes</option>
+              <option>10 - 30 minutes</option>
+              <option>30+ minutes</option>
             </select>
             <button type="submit" className={styles.primaryButton}>
-              开始搜索
+              Start Search
             </button>
           </form>
           <div className={styles.chipRow}>
@@ -197,8 +312,8 @@ export default function HomePage() {
         <section className={styles.section} id="categories">
           <div className={styles.sectionHeader}>
             <div>
-              <p className={styles.eyebrow}>花园合集</p>
-              <h2>花园主题分类</h2>
+              <p className={styles.eyebrow}>Garden Collection</p>
+              <h2>Recipe Categories</h2>
             </div>
           </div>
           <div className={styles.grid}>
@@ -214,11 +329,35 @@ export default function HomePage() {
           </div>
         </section>
 
+        <section className={styles.section} id="featured-categories">
+          <div className={styles.sectionHeader}>
+            <div>
+              <p className={styles.eyebrow}>Featured Selection</p>
+              <h2>Featured Recipes by Category</h2>
+            </div>
+          </div>
+          <div className={styles.grid}>
+            {featuredCategories.map((category) => (
+              <article
+                key={category.name}
+                className={`${styles.card} ${styles.featuredCard} ${category.tone ? styles[`card${category.tone}`] : ''}`}
+              >
+                <h3>
+                  <span className={styles.categoryIcon}>{category.icon}</span>
+                  {category.name}
+                </h3>
+                <p>{category.description}</p>
+                <span className={styles.count}>{category.count} recipes available</span>
+              </article>
+            ))}
+          </div>
+        </section>
+
         <section className={styles.section} id="popular">
           <div className={styles.sectionHeader}>
             <div>
-              <p className={styles.eyebrow}>热门精选</p>
-              <h2>热门推荐</h2>
+              <p className={styles.eyebrow}>Popular Picks</p>
+              <h2>Popular Recommendations</h2>
             </div>
           </div>
           <div className={styles.grid}>
@@ -234,11 +373,35 @@ export default function HomePage() {
           </div>
         </section>
 
+        <section className={styles.section} id="explore-categories">
+          <div className={styles.sectionHeader}>
+            <div>
+              <p className={styles.eyebrow}>Explore More</p>
+              <h2>Explore More Recipe Categories</h2>
+            </div>
+          </div>
+          <div className={styles.grid}>
+            {exploreCategories.map((category) => (
+              <article
+                key={category.name}
+                className={`${styles.card} ${styles.exploreCard} ${styles[`color${category.color}`]}`}
+              >
+                <div className={styles.exploreIcon}>{category.icon}</div>
+                <div className={styles.exploreContent}>
+                  <h3>{category.name}</h3>
+                  <span className={styles.count}>{category.count} recipes available</span>
+                  <p>{category.description}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
         <section className={styles.section} id="howto">
           <div className={styles.sectionHeader}>
             <div>
-              <p className={styles.eyebrow}>进阶路线</p>
-              <h2>三步完成所有料理</h2>
+              <p className={styles.eyebrow}>Advanced Guide</p>
+              <h2>Three Steps to Complete All Recipes</h2>
             </div>
           </div>
           <div className={styles.stepGrid}>
@@ -253,15 +416,15 @@ export default function HomePage() {
         </section>
 
         <section className={`${styles.section} ${styles.credibility}`} id="community">
-          <h3>社区驱动的可信数据</h3>
+          <h3>Community-Driven Trusted Data</h3>
           <p>
-            50,000+ 名玩家在 Discord 分享截图与锅水验证，后台每 12 小时刷新配方。提交更新后 6 小时内可见，确保攻略永不过时。
+            50,000+ players share screenshots and pot water verification on Discord. Backend refreshes recipes every 12 hours. Updates visible within 6 hours of submission, ensuring guides never go out of date.
           </p>
         </section>
       </main>
 
       <footer className={styles.footer}>
-        Grow a Garden 花园料理指南 · 2025 © 社区驱动的 Roblox 花园攻略
+        Grow a Garden Recipe Guide · 2025 © Community-Driven Roblox Garden Guide
       </footer>
     </div>
   );

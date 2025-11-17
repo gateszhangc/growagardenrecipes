@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Grow a Garden · Remix Style Sample</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+      :root {
+        --bg-1: #0c1813;
+        --bg-2: #10251d;
+        --surface: rgba(15, 36, 28, 0.85);
+        --border: rgba(228, 242, 236, 0.15);
+        --text: #f4f7f5;
+        --muted: rgba(244, 247, 245, 0.75);
+        --primary: #76f0c4;
+        --secondary: #fbd666;
+        --accent: #ff9e7e;
+      }
+
+      body {
+        margin: 0;
+        font-family: 'Inter', 'Segoe UI', 'PingFang SC', sans-serif;
+        background: radial-gradient(circle at 20% 20%, #143927, #060c0a 70%);
+        color: var(--text);
+      }
+
+      .shell {
+        width: min(1200px, 100%);
+        margin: 0 auto;
+        padding: 0 28px;
+      }
+
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        backdrop-filter: blur(18px);
+        background: rgba(4, 12, 9, 0.8);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 76px;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        font-family: 'Space Grotesk', sans-serif;
+        letter-spacing: 0.04em;
+      }
+
+      .logo-mark {
+        width: 46px;
+        height: 46px;
+        border-radius: 16px;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        display: grid;
+        place-items: center;
+        font-weight: 700;
+        color: #0c1813;
+      }
+
+      nav a {
+        color: var(--muted);
+        text-decoration: none;
+        padding: 10px 14px;
+        border-radius: 999px;
+        transition: all 0.2s ease;
+        font-size: 0.95rem;
+      }
+
+      nav a:hover {
+        color: var(--text);
+        background: rgba(118, 240, 196, 0.1);
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 50px;
+        padding: 80px 0 70px;
+        align-items: center;
+      }
+
+      .hero h1 {
+        margin: 12px 0 18px;
+        font-size: clamp(2.5rem, 4vw, 3.8rem);
+        font-family: 'Space Grotesk', sans-serif;
+      }
+
+      .hero span {
+        color: var(--primary);
+      }
+
+      .hero p {
+        color: var(--muted);
+        line-height: 1.8;
+      }
+
+      .hero-ctas {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-top: 24px;
+      }
+
+      .btn {
+        border: none;
+        border-radius: 999px;
+        padding: 14px 26px;
+        font-weight: 600;
+        cursor: pointer;
+      }
+
+      .btn-primary {
+        background: linear-gradient(120deg, var(--primary), var(--secondary));
+        color: #0d1c15;
+        box-shadow: 0 18px 30px rgba(118, 240, 196, 0.25);
+      }
+
+      .btn-ghost {
+        border: 1px solid var(--border);
+        background: transparent;
+        color: var(--text);
+      }
+
+      .hero-panel {
+        padding: 30px;
+        border-radius: 32px;
+        background: linear-gradient(150deg, rgba(11, 33, 24, 0.95), rgba(16, 19, 18, 0.9));
+        border: 1px solid var(--border);
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
+      }
+
+      .badge {
+        display: inline-flex;
+        padding: 6px 14px;
+        border-radius: 999px;
+        background: rgba(118, 240, 196, 0.2);
+        color: var(--primary);
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+      }
+
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+        margin-top: 18px;
+      }
+
+      .stat {
+        background: rgba(5, 15, 12, 0.7);
+        border-radius: 20px;
+        padding: 16px;
+        border: 1px solid var(--border);
+      }
+
+      .stat strong {
+        display: block;
+        font-size: 1.8rem;
+        color: var(--primary);
+      }
+
+      section {
+        margin-bottom: 48px;
+      }
+
+      .section-card {
+        padding: 34px;
+        background: var(--surface);
+        border-radius: 32px;
+        border: 1px solid var(--border);
+      }
+
+      .section-title {
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        font-size: 0.75rem;
+        color: rgba(255, 255, 255, 0.5);
+        margin: 0 0 12px;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        gap: 20px;
+      }
+
+      .category-card {
+        border-radius: 28px;
+        background: rgba(7, 19, 15, 0.8);
+        border: 1px solid rgba(244, 247, 245, 0.1);
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        transition: transform 0.2s ease, border 0.2s ease;
+      }
+
+      .category-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(118, 240, 196, 0.5);
+      }
+
+      .category-icon {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        background: rgba(118, 240, 196, 0.15);
+        display: grid;
+        place-items: center;
+        font-size: 1.6rem;
+      }
+
+      .category-card h3 {
+        margin: 0;
+        font-size: 1.4rem;
+      }
+
+      .category-card p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .category-card span {
+        font-size: 0.9rem;
+        color: var(--primary);
+        font-weight: 500;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="shell nav">
+        <div class="logo">
+          <div class="logo-mark">GG</div>
+          Grow a Garden Recipes
+        </div>
+        <nav>
+          <a href="#">Home</a>
+          <a href="#">Recipes</a>
+          <a href="#">Ingredients</a>
+          <a href="#">Rarity</a>
+          <a href="#">Rewards</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="shell">
+      <section class="hero">
+        <div>
+          <p class="section-title">Hero</p>
+          <h1>
+            Master Every <span>Grow a Garden Recipe</span>
+          </h1>
+          <p>
+            Your ultimate guide to cooking success in Grow a Garden! Discover every verified recipe, track pot colors, and unlock
+            legendary rewards with community-tested strategies.
+          </p>
+          <div class="hero-ctas">
+            <button class="btn btn-primary">Browse All Recipes</button>
+            <button class="btn btn-ghost">Submit Correction</button>
+          </div>
+        </div>
+        <div class="hero-panel">
+          <div class="badge">Live Tracker</div>
+          <h3 style="margin-top: 18px; margin-bottom: 8px">Today's Highlights</h3>
+          <p style="margin: 0; color: var(--muted)">
+            57 new patch recipes verified. Pot colors calibrated by 50k+ players.
+          </p>
+          <div class="stats">
+            <div class="stat">
+              <strong>214</strong>
+              Recipes
+            </div>
+            <div class="stat">
+              <strong>92%</strong>
+              Verification rate
+            </div>
+            <div class="stat">
+              <strong>28</strong>
+              Pot colors
+            </div>
+            <div class="stat">
+              <strong>12h</strong>
+              Update cycle
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-card">
+        <p class="section-title">Recipe Categories</p>
+        <div class="grid">
+          <div class="category-card">
+            <div class="category-icon">⏱</div>
+            <h3>Fast Recipes</h3>
+            <p>Speed-focused dishes ready in under 5 minutes.</p>
+            <span>15 recipes available</span>
+          </div>
+          <div class="category-card">
+            <div class="category-icon">🏆</div>
+            <h3>High Rewards</h3>
+            <p>Legendary combos optimized for pet eggs and XP bursts.</p>
+            <span>12 recipes available</span>
+          </div>
+          <div class="category-card">
+            <div class="category-icon">🎯</div>
+            <h3>Beginner Friendly</h3>
+            <p>Low-ingredient meals with guaranteed success.</p>
+            <span>8 recipes available</span>
+          </div>
+          <div class="category-card">
+            <div class="category-icon">👨‍🍳</div>
+            <h3>All Recipes</h3>
+            <p>The full verified database with filters by rarity, pot color and reward.</p>
+            <span>38 recipes available</span>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
