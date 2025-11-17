@@ -87,6 +87,43 @@ async function downloadAssets() {
   }
 
   console.log('\nAsset download complete');
+  
+  // Download additional dynamic assets referenced in JS files
+  console.log('\nScanning for dynamic assets in JS files...');
+  const assetsDir = path.join(publicDir, 'assets');
+  
+  if (fs.existsSync(assetsDir)) {
+    const jsFiles = fs.readdirSync(assetsDir).filter(f => f.endsWith('.js'));
+    
+    for (const jsFile of jsFiles) {
+      const jsPath = path.join(assetsDir, jsFile);
+      const jsContent = fs.readFileSync(jsPath, 'utf8');
+      
+      // Look for internal-links references
+      const internalLinksRegex = /["']\.\/internal-links\.[^"']+\.js["']/g;
+      const matches = jsContent.match(internalLinksRegex);
+      
+      if (matches) {
+        for (const match of matches) {
+          const filename = match.replace(/["'\.\/]/g, '');
+          const fullUrl = `${baseUrl}/assets/${filename}`;
+          const localPath = path.join(assetsDir, filename);
+          
+          if (!fs.existsSync(localPath)) {
+            try {
+              console.log(`Downloading dynamic asset ${filename}...`);
+              await downloadFile(fullUrl, localPath);
+              console.log(`✓ Downloaded ${filename}`);
+            } catch (err) {
+              console.log(`✗ Failed to download ${filename}: ${err.message}`);
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  console.log('\nAll assets downloaded');
 }
 
 downloadAssets().catch(console.error);

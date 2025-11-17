@@ -3,11 +3,7 @@ import { loadHtmlFragment } from '@/lib/loadHtmlFragment';
 
 export default function RecipesPage() {
   const headContent = loadHtmlFragment('recipes-head.html');
-
-  let bodyContent = loadHtmlFragment('recipes-body.html');
-  if (!bodyContent) {
-    bodyContent = '<div>Error loading content</div>';
-  }
+  const bodyContent = loadHtmlFragment('recipes-body.html');
 
   return (
     <>
