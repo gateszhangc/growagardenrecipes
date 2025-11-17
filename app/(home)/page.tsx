@@ -51,32 +51,36 @@ const categories = [
 
 const popularRecipes = [
   {
-    name: 'Pizza (Red Pot)',
+    name: 'Apple Pie',
+    rarity: 'Epic',
+    duration: '45:00',
+    reward: 'High',
+    ingredients: 5,
+    tone: 'epic' as const,
+  },
+  {
+    name: 'Cheese Burger',
+    rarity: 'Common',
+    duration: '15:00',
+    reward: 'Medium',
+    ingredients: 5,
+    tone: 'common' as const,
+  },
+  {
+    name: 'Pizza',
     rarity: 'Legendary',
     duration: '04:30',
-    description: 'Wheat × Tomato × Cheese · Pet Egg + XP',
+    reward: 'Very High',
+    ingredients: 6,
     tone: 'legendary' as const,
   },
   {
-    name: 'Mushroom Soup (Purple Pot)',
-    rarity: 'Epic',
-    duration: '25:00',
-    description: 'Mushroom × Water × Spice · High XP burst chance',
-    tone: 'epic' as const,
-  },
-  {
-    name: 'Golden Drink (Gold Pot)',
-    rarity: 'Epic',
-    duration: '30:00',
-    description: 'Fruit Mix × Energy Herb · Rare material drops',
-    tone: 'epic' as const,
-  },
-  {
-    name: 'Apple Pie (Red Pot)',
-    rarity: 'Legendary',
-    duration: '45:00',
-    description: 'Apple × Sugar × Dough · Perfect for leaderboards',
-    tone: 'legendary' as const,
+    name: 'Watermelon Juice',
+    rarity: 'Common',
+    duration: '08:00',
+    reward: 'Medium',
+    ingredients: 3,
+    tone: 'common' as const,
   },
 ];
 
@@ -178,6 +182,51 @@ const exploreCategories = [
   },
 ];
 
+const detailedRecipes = {
+  pies: [
+    { icon: '🍎', name: 'Apple Pie', description: 'Traditional apple pie with flaky crust', time: '45:00', rarity: 'Epic' },
+    { icon: '🥧', name: 'Classic Pie', description: 'Basic pie recipe for beginners', time: '6:00', rarity: 'Common' },
+    { icon: '🎃', name: 'Pumpkin Pie', description: 'Seasonal favorite with spices', time: '30:00', rarity: 'Rare' },
+    { icon: '🫐', name: 'Berry Pie', description: 'Mixed berry delight', time: '25:00', rarity: 'Rare' },
+  ],
+  burgers: [
+    { icon: '🧀', name: 'Cheese Burger', description: 'Classic burger with melted cheese', time: '15:00', rarity: 'Common' },
+    { icon: '🍔', name: 'Classic Burger', description: 'Traditional beef burger', time: '5:10', rarity: 'Common' },
+    { icon: '🥬', name: 'Veggie Burger', description: 'Healthy plant-based option', time: '8:00', rarity: 'Uncommon' },
+    { icon: '🍔🍔', name: 'Double Burger', description: 'Extra hearty double patty', time: '20:00', rarity: 'Rare' },
+  ],
+  soups: [
+    { icon: '🍲', name: 'Classic Soup', description: 'Warm and comforting soup', time: '2:40', rarity: 'Common' },
+    { icon: '🐔', name: 'Chicken Soup', description: 'Hearty chicken and vegetables', time: '12:00', rarity: 'Uncommon' },
+    { icon: '🍄', name: 'Mushroom Soup', description: 'Creamy forest mushroom blend', time: '15:00', rarity: 'Rare' },
+    { icon: '🥩', name: 'Beef Stew', description: 'Rich and filling beef stew', time: '25:00', rarity: 'Rare' },
+  ],
+  drinks: [
+    { icon: '🍉', name: 'Watermelon Juice', description: 'Refreshing summer drink', time: '8:00', rarity: 'Common' },
+    { icon: '🍓', name: 'Fruit Smoothie', description: 'Mixed berry smoothie blend', time: '5:00', rarity: 'Common' },
+    { icon: '⚡', name: 'Energy Drink', description: 'Boost your garden energy', time: '10:00', rarity: 'Uncommon' },
+    { icon: '✨', name: 'Golden Elixir', description: 'Legendary healing potion', time: '60:00', rarity: 'Legendary' },
+  ],
+};
+
+const howToSteps = [
+  {
+    number: 1,
+    title: 'Plan Your Garden',
+    description: 'Design your garden layout to support the grow a garden recipes you want to master, ensuring optimal ingredient production.',
+  },
+  {
+    number: 2,
+    title: 'Master Timing',
+    description: 'Learn cooking schedules and ingredient harvest times to maintain fresh supplies for your recipes.',
+  },
+  {
+    number: 3,
+    title: 'Progress Systematically',
+    description: 'Start with common recipes and gradually work toward legendary grow a garden recipes as you unlock rare ingredients.',
+  },
+];
+
 export default function HomePage() {
   const handleSearch = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -213,8 +262,7 @@ export default function HomePage() {
               Master Every <span>Grow a Garden Recipe</span>
             </h1>
             <p className={styles.heroBody}>
-              Your ultimate guide to cooking success in Grow a Garden! Discover every verified recipe, track pot colors, and unlock
-              legendary rewards with community-tested strategies.
+              Your ultimate guide to cooking success in Grow a Garden! Discover comprehensive grow a garden recipes, expert cooking strategies, and unlock every delicious possibility in your virtual kitchen. From beginner-friendly dishes to legendary feast creations, we have every grow a garden recipe you need.
             </p>
             <div className={styles.heroCtas}>
               <button type="button" className={styles.primaryButton}>
@@ -247,13 +295,13 @@ export default function HomePage() {
           </div>
           <div className={styles.sectionContent}>
             <p>
-              Cooking in Grow a Garden is the heart of your virtual farming adventure, where creativity meets strategy. Unlike traditional farming games, grow a garden recipes require careful planning, timing, and ingredient management.
+              Cooking in Grow a Garden is the heart of your virtual farming adventure, where creativity meets strategy. Unlike traditional farming games, grow a garden recipes require careful planning, timing, and ingredient management. Each recipe represents a unique combination of ingredients that you've grown, harvested, and carefully prepared to create magical dishes that provide substantial rewards and unlock new gameplay possibilities.
             </p>
             <p>
-              Each recipe combines specific ingredients in a cooking pot, with different pot water colors indicating recipe types. Cook times range from quick 4-minute dishes to elaborate 45-minute feasts, each offering unique rewards like Pet Eggs, XP boosts, and rare materials.
+              The cooking system in Grow a Garden features over 200 unique recipes, each with specific ingredient requirements, cooking times, and pot water color indicators. Players must master the art of timing their harvests to ensure fresh ingredients are available when needed. The grow a garden recipes system rewards experimentation and strategic thinking, offering bonus rewards for discovering rare ingredient combinations and perfecting cooking techniques.
             </p>
             <p>
-              Master the art of timing your harvests, understanding rarity tiers, and chaining recipes together to maximize your garden's potential and unlock legendary rewards.
+              From simple salads using common vegetables to legendary feasts requiring rare magical ingredients, grow a garden recipes provide endless entertainment and progression opportunities. The cooking mechanic seamlessly integrates with the farming system, creating a rewarding loop where better farming leads to better cooking, which unlocks better rewards and progression opportunities.
             </p>
           </div>
         </section>
@@ -270,6 +318,11 @@ export default function HomePage() {
                 <p>{tip.description}</p>
               </article>
             ))}
+          </div>
+          <div className={styles.sectionContent} style={{ marginTop: '32px' }}>
+            <p>
+              Mastering grow a garden recipes requires understanding the intricate relationships between ingredients, timing, and rewards. Professional players focus on efficiency optimization, creating cooking schedules that maximize ingredient usage while minimizing downtime. The key to success lies in planning your garden layout to support your favorite grow a garden recipes, ensuring you always have the necessary ingredients when inspiration strikes.
+            </p>
           </div>
         </section>
 
@@ -327,6 +380,11 @@ export default function HomePage() {
               </article>
             ))}
           </div>
+          <div className={styles.sectionContent} style={{ marginTop: '32px' }}>
+            <p>
+              Our comprehensive database organizes grow a garden recipes into intuitive categories, making it easy to find exactly what you're looking for. Whether you're seeking quick cooking solutions for immediate rewards or complex legendary recipes for maximum progression, our categorization system helps you navigate the vast world of grow a garden recipes efficiently.
+            </p>
+          </div>
         </section>
 
         <section className={styles.section} id="featured-categories">
@@ -336,20 +394,93 @@ export default function HomePage() {
               <h2>Featured Recipes by Category</h2>
             </div>
           </div>
-          <div className={styles.grid}>
-            {featuredCategories.map((category) => (
-              <article
-                key={category.name}
-                className={`${styles.card} ${styles.featuredCard} ${category.tone ? styles[`card${category.tone}`] : ''}`}
-              >
-                <h3>
-                  <span className={styles.categoryIcon}>{category.icon}</span>
-                  {category.name}
-                </h3>
-                <p>{category.description}</p>
-                <span className={styles.count}>{category.count} recipes available</span>
-              </article>
-            ))}
+
+          {/* Pie Recipes */}
+          <div style={{ marginBottom: '48px' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
+              <h3 style={{ fontSize: '24px', margin: 0 }}>🥧 Pie Recipes</h3>
+              <a href="/recipes/pies" style={{ color: 'var(--primary-green)', textDecoration: 'none', fontSize: '14px' }}>View All Pies</a>
+            </div>
+            <div className={styles.grid}>
+              {detailedRecipes.pies.map((recipe) => (
+                <article key={recipe.name} className={styles.card}>
+                  <h4 style={{ fontSize: '18px', marginBottom: '8px' }}>
+                    {recipe.icon} {recipe.name}
+                  </h4>
+                  <p style={{ marginBottom: '12px' }}>{recipe.description}</p>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px', color: 'var(--text-gray)' }}>
+                    <span>Cook Time: {recipe.time}</span>
+                    <span className={styles.badge}>{recipe.rarity}</span>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+
+          {/* Burger Recipes */}
+          <div style={{ marginBottom: '48px' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
+              <h3 style={{ fontSize: '24px', margin: 0 }}>🍔 Burger Recipes</h3>
+              <a href="/recipes/burgers" style={{ color: 'var(--primary-green)', textDecoration: 'none', fontSize: '14px' }}>View All Burgers</a>
+            </div>
+            <div className={styles.grid}>
+              {detailedRecipes.burgers.map((recipe) => (
+                <article key={recipe.name} className={styles.card}>
+                  <h4 style={{ fontSize: '18px', marginBottom: '8px' }}>
+                    {recipe.icon} {recipe.name}
+                  </h4>
+                  <p style={{ marginBottom: '12px' }}>{recipe.description}</p>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px', color: 'var(--text-gray)' }}>
+                    <span>Cook Time: {recipe.time}</span>
+                    <span className={styles.badge}>{recipe.rarity}</span>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+
+          {/* Soup Recipes */}
+          <div style={{ marginBottom: '48px' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
+              <h3 style={{ fontSize: '24px', margin: 0 }}>🍲 Soup Recipes</h3>
+              <a href="/recipes/soups" style={{ color: 'var(--primary-green)', textDecoration: 'none', fontSize: '14px' }}>View All Soups</a>
+            </div>
+            <div className={styles.grid}>
+              {detailedRecipes.soups.map((recipe) => (
+                <article key={recipe.name} className={styles.card}>
+                  <h4 style={{ fontSize: '18px', marginBottom: '8px' }}>
+                    {recipe.icon} {recipe.name}
+                  </h4>
+                  <p style={{ marginBottom: '12px' }}>{recipe.description}</p>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px', color: 'var(--text-gray)' }}>
+                    <span>Cook Time: {recipe.time}</span>
+                    <span className={styles.badge}>{recipe.rarity}</span>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+
+          {/* Drink Recipes */}
+          <div style={{ marginBottom: '48px' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
+              <h3 style={{ fontSize: '24px', margin: 0 }}>🧃 Drink Recipes</h3>
+              <a href="/recipes/drinks" style={{ color: 'var(--primary-green)', textDecoration: 'none', fontSize: '14px' }}>View All Drinks</a>
+            </div>
+            <div className={styles.grid}>
+              {detailedRecipes.drinks.map((recipe) => (
+                <article key={recipe.name} className={styles.card}>
+                  <h4 style={{ fontSize: '18px', marginBottom: '8px' }}>
+                    {recipe.icon} {recipe.name}
+                  </h4>
+                  <p style={{ marginBottom: '12px' }}>{recipe.description}</p>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px', color: 'var(--text-gray)' }}>
+                    <span>Cook Time: {recipe.time}</span>
+                    <span className={styles.badge}>{recipe.rarity}</span>
+                  </div>
+                </article>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -357,19 +488,30 @@ export default function HomePage() {
           <div className={styles.sectionHeader}>
             <div>
               <p className={styles.eyebrow}>Popular Picks</p>
-              <h2>Popular Recommendations</h2>
+              <h2>Popular Recipes</h2>
             </div>
           </div>
           <div className={styles.grid}>
             {popularRecipes.map((recipe) => (
               <article key={recipe.name} className={styles.card}>
-                <span className={`${styles.badge} ${styles[recipe.tone]}`}>
-                  {recipe.rarity} · {recipe.duration}
-                </span>
-                <h3>{recipe.name}</h3>
-                <p>{recipe.description}</p>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
+                  <span className={`${styles.badge} ${styles[recipe.tone]}`}>
+                    {recipe.rarity}
+                  </span>
+                  <span style={{ fontSize: '14px', color: 'var(--text-gray)' }}>{recipe.duration}</span>
+                </div>
+                <h3 style={{ marginBottom: '12px' }}>{recipe.name}</h3>
+                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '14px', color: 'var(--text-gray)' }}>
+                  <span>Reward: <strong>{recipe.reward}</strong></span>
+                  <span>Ingredients: <strong>{recipe.ingredients}</strong></span>
+                </div>
               </article>
             ))}
+          </div>
+          <div className={styles.sectionContent} style={{ marginTop: '32px' }}>
+            <p>
+              These popular grow a garden recipes represent the community's favorites, chosen for their optimal balance of reward potential and accessibility. Each recipe has been tested and verified by thousands of players, ensuring reliable results and maximum satisfaction for cooks of all skill levels.
+            </p>
           </div>
         </section>
 
@@ -397,22 +539,47 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className={styles.section} id="howto">
+        <section className={styles.section} id="how-to-make">
           <div className={styles.sectionHeader}>
-            <div>
-              <p className={styles.eyebrow}>Advanced Guide</p>
-              <h2>Three Steps to Complete All Recipes</h2>
-            </div>
+            <h2>How to Make Every Cooking Recipe in Grow a Garden?</h2>
           </div>
-          <div className={styles.stepGrid}>
-            {steps.map((step, index) => (
-              <article key={step.title} className={styles.stepCard}>
-                <div className={styles.stepNumber}>{index + 1}</div>
+          <div className={styles.sectionContent}>
+            <p>
+              Creating every grow a garden recipe requires systematic approach and deep understanding of the game's cooking mechanics. Our comprehensive guide breaks down the process into manageable steps, ensuring you can master even the most complex legendary recipes. The journey to completing your recipe collection involves strategic garden planning, efficient resource management, and patience as you unlock rare ingredients through progression.
+            </p>
+          </div>
+          <div className={styles.stepGrid} style={{ marginTop: '32px' }}>
+            {howToSteps.map((step) => (
+              <article key={step.number} className={styles.stepCard}>
+                <div className={styles.stepNumber}>{step.number}</div>
                 <h3>{step.title}</h3>
                 <p>{step.description}</p>
               </article>
             ))}
           </div>
+          <div className={styles.sectionContent} style={{ marginTop: '32px' }}>
+            <p>
+              The complete grow a garden recipes collection includes over 200 unique dishes, each offering different rewards and progression opportunities. By following our detailed guides and utilizing our search tools, you'll discover efficient paths to recipe mastery, unlock hidden ingredient combinations, and maximize your cooking potential in Grow a Garden.
+            </p>
+          </div>
+        </section>
+
+        <section className={styles.section} id="cta" style={{ textAlign: 'center' }}>
+          <h2 style={{ marginBottom: '16px' }}>Start Your Recipe Journey Today</h2>
+          <p style={{ fontSize: '16px', color: 'var(--text-gray)', marginBottom: '32px', maxWidth: '600px', margin: '0 auto 32px' }}>
+            Join thousands of players who have mastered grow a garden recipes using our comprehensive guides. Get instant access to verified recipes, expert strategies, and community insights.
+          </p>
+          <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '24px' }}>
+            <button type="button" className={styles.primaryButton}>
+              View Updates
+            </button>
+            <button type="button" className={styles.ghostButton}>
+              Browse Ingredients Guide
+            </button>
+          </div>
+          <p style={{ fontSize: '14px', color: 'var(--text-light)' }}>
+            Free access to basic recipes • Premium features available • Join 50,000+ active cooks
+          </p>
         </section>
 
         <section className={`${styles.section} ${styles.credibility}`} id="community">
