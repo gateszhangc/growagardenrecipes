@@ -6,76 +6,68 @@ import Footer from '../../components/Footer';
 import styles from './page.module.css';
 
 const recipeData = {
+  icon: '🍲',
   name: 'Soup',
-  tags: ['fast', 'beginner-friendly', 'common'],
   cookTime: '3:00',
   potColor: 'Light Blue',
   difficulty: 'Easy',
-  rewardCount: 2,
-  ingredients: [
-    { name: 'Tomato', link: '/ingredients/tomato' },
-    { name: 'Potato', link: '/ingredients/potato' },
-    { name: 'Spice', link: '/ingredients/spice' },
-  ],
-  rewards: [
-    { name: 'XP Boost', link: '/rewards/xp-boost' },
-    { name: 'Coin Pack', link: '/rewards/coin-pack' },
-  ],
-  verified: '2024-12-01',
-  version: 'v1.2.0',
+  rewards: 2,
+  rarity: 'Common',
+  tags: ['fast', 'beginner-friendly', 'common'],
 };
 
-const relatedRecipes = [
-  {
-    name: 'Sandwich',
-    description: 'Another quick and easy recipe',
-    link: '/recipes/sandwich',
-  },
-  {
-    name: 'Salad',
-    description: 'Fresh and fast to prepare',
-    link: '/recipes/salad',
-  },
-  {
-    name: 'Hot Dog',
-    description: 'Classic comfort food',
-    link: '/recipes/hot-dog',
-  },
+const ingredients = [
+  { name: 'Tomato', icon: '🍅', rarity: 'Common' },
+  { name: 'Potato', icon: '🥔', rarity: 'Common' },
+  { name: 'Spice', icon: '🌶️', rarity: 'Common' },
 ];
 
-export default function SoupRecipePage() {
+const steps = [
+  'Add Tomato, Potato, and Spice to your cooking pot',
+  'Start cooking and wait for 3 minutes',
+  'Watch for the pot water to turn Light Blue',
+  'Collect your rewards when cooking is complete',
+];
+
+const rewards = [
+  { name: 'XP Boost', icon: '⭐', rarity: 'Common' },
+  { name: 'Coin Pack', icon: '💰', rarity: 'Common' },
+];
+
+const relatedRecipes = [
+  { icon: '🥪', name: 'Sandwich', desc: 'Another quick and easy recipe', time: '03:00' },
+  { icon: '🥗', name: 'Salad', desc: 'Fresh and fast to prepare', time: '02:10' },
+  { icon: '🌭', name: 'Hot Dog', desc: 'Classic comfort food', time: '03:30' },
+];
+
+export default function SoupPage() {
   return (
     <div className={styles.page}>
       <Header />
 
       <main className={styles.main}>
         <div className={styles.container}>
+          {/* Breadcrumb */}
           <Link href="/recipes" className={styles.backLink}>
             ← Back to Recipes
           </Link>
 
-          <div className={styles.recipeHeader}>
-            <div>
-              <h1>{recipeData.name}</h1>
-              <div className={styles.tags}>
-                {recipeData.tags.map((tag) => (
-                  <span key={tag} className={styles.tag}>
-                    {tag}
-                  </span>
-                ))}
-              </div>
+          {/* Hero Section */}
+          <div className={styles.hero}>
+            <div className={styles.recipeIcon}>{recipeData.icon}</div>
+            <h1>{recipeData.name}</h1>
+            <div className={styles.tags}>
+              {recipeData.tags.map((tag) => (
+                <span key={tag} className={styles.tag}>{tag}</span>
+              ))}
             </div>
           </div>
 
-          <div className={styles.statsGrid}>
+          {/* Quick Stats */}
+          <section className={styles.statsSection}>
             <div className={styles.statCard}>
               <div className={styles.statLabel}>Cook Time</div>
-              <div className={styles.statValue}>
-                {recipeData.cookTime.split(':')[0]}
-                <span className={styles.statUnit}>:</span>
-                {recipeData.cookTime.split(':')[1]}
-                <span className={styles.statUnit}> min</span>
-              </div>
+              <div className={styles.statValue}>{recipeData.cookTime} <span>min</span></div>
             </div>
             <div className={styles.statCard}>
               <div className={styles.statLabel}>Pot Color</div>
@@ -87,34 +79,33 @@ export default function SoupRecipePage() {
             </div>
             <div className={styles.statCard}>
               <div className={styles.statLabel}>Rewards</div>
-              <div className={styles.statValue}>{recipeData.rewardCount}</div>
+              <div className={styles.statValue}>{recipeData.rewards}</div>
             </div>
-          </div>
-
-          <section className={styles.section}>
-            <h3>How to Make {recipeData.name}</h3>
-            <ol className={styles.stepsList}>
-              <li>
-                Add <strong>Tomato</strong>, <strong>Potato</strong>, and <strong>Spice</strong> to
-                your cooking pot
-              </li>
-              <li>
-                Start cooking and wait for <strong>3 minutes</strong>
-              </li>
-              <li>
-                Watch for the pot water to turn <strong>Light Blue</strong>
-              </li>
-              <li>Collect your rewards when cooking is complete</li>
-            </ol>
           </section>
 
-          <section className={styles.section}>
-            <h3>Ingredients Required</h3>
-            <div className={styles.itemGrid}>
-              {recipeData.ingredients.map((ingredient) => (
-                <div key={ingredient.name} className={styles.itemCard}>
-                  <span className={styles.itemName}>{ingredient.name}</span>
-                  <Link href={ingredient.link} className={styles.itemLink}>
+          {/* How to Make */}
+          <section className={styles.stepsSection}>
+            <h2>How to Make {recipeData.name}</h2>
+            <div className={styles.stepsList}>
+              {steps.map((step, index) => (
+                <div key={index} className={styles.stepItem}>
+                  <span className={styles.stepNumber}>{index + 1}</span>
+                  <p>{step}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Ingredients */}
+          <section className={styles.ingredientsSection}>
+            <h2>Ingredients Required</h2>
+            <div className={styles.ingredientsGrid}>
+              {ingredients.map((ingredient) => (
+                <div key={ingredient.name} className={styles.ingredientCard}>
+                  <span className={styles.ingredientIcon}>{ingredient.icon}</span>
+                  <h3>{ingredient.name}</h3>
+                  <span className={styles.ingredientRarity}>{ingredient.rarity}</span>
+                  <Link href={`/ingredients/${ingredient.name.toLowerCase()}`} className={styles.ingredientLink}>
                     View Details
                   </Link>
                 </div>
@@ -122,13 +113,16 @@ export default function SoupRecipePage() {
             </div>
           </section>
 
-          <section className={styles.section}>
-            <h3>Possible Rewards</h3>
-            <div className={styles.itemGrid}>
-              {recipeData.rewards.map((reward) => (
-                <div key={reward.name} className={styles.itemCard}>
-                  <span className={styles.itemName}>{reward.name}</span>
-                  <Link href={reward.link} className={styles.itemLink}>
+          {/* Rewards */}
+          <section className={styles.rewardsSection}>
+            <h2>Possible Rewards</h2>
+            <div className={styles.rewardsGrid}>
+              {rewards.map((reward) => (
+                <div key={reward.name} className={styles.rewardCard}>
+                  <span className={styles.rewardIcon}>{reward.icon}</span>
+                  <h3>{reward.name}</h3>
+                  <span className={styles.rewardRarity}>{reward.rarity}</span>
+                  <Link href={`/rewards/${reward.name.toLowerCase().replace(/ /g, '-')}`} className={styles.rewardLink}>
                     Learn More
                   </Link>
                 </div>
@@ -136,29 +130,40 @@ export default function SoupRecipePage() {
             </div>
           </section>
 
-          <section className={styles.section}>
-            <h3>Recipe Info</h3>
-            <div className={styles.infoGrid}>
-              <div>
-                <strong>Verified:</strong> {recipeData.verified}
+          {/* Recipe Info */}
+          <section className={styles.infoSection}>
+            <h2>Recipe Info</h2>
+            <div className={styles.infoCard}>
+              <div className={styles.infoItem}>
+                <span className={styles.infoLabel}>Verified:</span>
+                <span className={styles.infoValue}>2024-12-01</span>
               </div>
-              <div>
-                <strong>Version:</strong> {recipeData.version}
+              <div className={styles.infoItem}>
+                <span className={styles.infoLabel}>Version:</span>
+                <span className={styles.infoValue}>v1.2.0</span>
+              </div>
+              <div className={styles.infoItem}>
+                <span className={styles.infoLabel}>Rarity:</span>
+                <span className={styles.infoValue}>{recipeData.rarity}</span>
               </div>
             </div>
           </section>
 
-          <section className={styles.section}>
+          {/* Related Recipes */}
+          <section className={styles.relatedSection}>
             <h2>Related Recipes</h2>
             <div className={styles.relatedGrid}>
               {relatedRecipes.map((recipe) => (
-                <div key={recipe.name} className={styles.relatedCard}>
+                <Link
+                  key={recipe.name}
+                  href={`/recipes/${recipe.name.toLowerCase().replace(/ /g, '-')}`}
+                  className={styles.relatedCard}
+                >
+                  <span className={styles.relatedIcon}>{recipe.icon}</span>
                   <h3>{recipe.name}</h3>
-                  <p>{recipe.description}</p>
-                  <Link href={recipe.link} className={styles.relatedLink}>
-                    View Recipe
-                  </Link>
-                </div>
+                  <p>{recipe.desc}</p>
+                  <span className={styles.relatedTime}>Cook: {recipe.time}</span>
+                </Link>
               ))}
             </div>
           </section>
