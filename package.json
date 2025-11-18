@@ -2,11 +2,15 @@
   "name": "growagarden-recipes-clone",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://growagarden-recipes.com",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "build:analyze": "ANALYZE=true next build",
+    "export": "next export",
+    "sitemap": "next-sitemap"
   },
   "dependencies": {
     "html-react-parser": "^5.2.10",

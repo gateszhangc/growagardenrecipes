@@ -48,8 +48,10 @@ export default function HomePage() {
             <div className={styles.badge}>2025 UPDATE</div>
             <h1>Master Every <span className={styles.highlight}>Grow a Garden Recipe</span></h1>
             <p className={styles.heroDesc}>
-              Your ultimate guide to cooking success in Grow a Garden! Discover comprehensive recipes, 
+              Your ultimate guide to cooking success in Grow a Garden! Discover comprehensive recipes,
               expert cooking strategies, and unlock every delicious possibility in your virtual kitchen.
+              Learn how to grow ingredients, optimize cooking times, and maximize your rewards with our
+              detailed <strong>grow a garden recipes</strong> database.
             </p>
             <div className={styles.heroButtons}>
               <Link href="/recipes" className={styles.primaryBtn}>Browse All Recipes</Link>
@@ -95,7 +97,7 @@ export default function HomePage() {
           <section className={styles.categoriesSection}>
             <div className={styles.sectionHeader}>
               <span className={styles.sectionBadge}>GARDEN COLLECTION</span>
-              <h2>Recipe Categories</h2>
+              <h2>Grow a Garden Recipe Categories</h2>
             </div>
             <div className={styles.categoryGrid}>
               {categories.map((cat) => (
@@ -110,7 +112,8 @@ export default function HomePage() {
 
           {/* Tips Section */}
           <section className={styles.tipsSection}>
-            <h2>Pro Tips for Better Rewards</h2>
+            <h2>Expert Grow a Garden Cooking Tips</h2>
+            <p className={styles.sectionDesc}>Master these essential strategies to maximize your cooking efficiency and rewards in Grow a Garden recipes.</p>
             <div className={styles.tipsGrid}>
               {tips.map((tip) => (
                 <div key={tip.title} className={styles.tipCard}>

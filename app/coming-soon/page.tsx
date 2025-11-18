@@ -48,8 +48,8 @@ export default function ComingSoonPage() {
             <div className={styles.icon}>🚧</div>
 
             {/* Title */}
-            <h1 className={styles.title}>Coming Soon</h1>
-            <p className={styles.subtitle}>This page is under development</p>
+            <h1 className={styles.title}>New Grow a Garden Features Coming Soon</h1>
+            <p className={styles.subtitle}>Exciting updates and new recipes for your virtual garden cooking adventure</p>
             <p className={styles.description}>
               We're working hard to bring you this feature. Subscribe to get notified when it's ready!
             </p>

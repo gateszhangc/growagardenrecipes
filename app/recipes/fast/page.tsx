@@ -41,10 +41,10 @@ export default function FastRecipePage() {
               ← Back to All Recipes
             </Link>
             <div className={styles.badge}>⚡ SPEED COOKING</div>
-            <h1>Fast Recipes</h1>
+            <h1>Fast Grow a Garden Recipes</h1>
             <p className={styles.subtitle}>Quick dishes ready in under 5 minutes</p>
             <p className={styles.description}>
-              Perfect for fast rewards and efficient gameplay progression. These recipes are optimized 
+              Perfect for fast rewards and efficient gameplay progression. These <strong>grow a garden recipes</strong> are optimized
               for players who want to maximize their cooking output in minimal time.
             </p>
           </div>
