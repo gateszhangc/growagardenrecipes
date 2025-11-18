@@ -1,16 +1,24 @@
 'use client';
 
 import { useState, FormEvent } from 'react';
+import React from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import styles from './page.module.css';
+import { useClarity } from '@/hooks/useClarity';
 
 export default function ComingSoonPage() {
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const router = useRouter();
+  const { trackSubscriptionForm, trackUserButton, setUserTags } = useClarity();
+
+  // Set page tag on mount
+  React.useEffect(() => {
+    setUserTags('visitor', 'coming-soon');
+  }, []);
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -30,9 +38,12 @@ export default function ComingSoonPage() {
     subscribers.push({ email, timestamp: new Date().toISOString() });
     localStorage.setItem('subscribers', JSON.stringify(subscribers));
 
+    // Track successful subscription
+    trackSubscriptionForm(email);
+
     // 显示成功消息并跳转
     alert('Thank you for subscribing! We will notify you when this page is ready.');
-    
+
     // 跳转到首页
     router.push('/');
   };
@@ -78,10 +89,18 @@ export default function ComingSoonPage() {
 
             {/* Action Buttons */}
             <div className={styles.actions}>
-              <Link href="/" className={styles.primaryBtn}>
+              <Link
+                href="/"
+                className={styles.primaryBtn}
+                onClick={() => trackUserButton('back_to_home', 'coming-soon')}
+              >
                 🏠 Back to Home
               </Link>
-              <Link href="/recipes" className={styles.secondaryBtn}>
+              <Link
+                href="/recipes"
+                className={styles.secondaryBtn}
+                onClick={() => trackUserButton('browse_recipes', 'coming-soon')}
+              >
                 📖 Browse Recipes
               </Link>
             </div>
