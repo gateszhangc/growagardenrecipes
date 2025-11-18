@@ -2,6 +2,7 @@ import './globals.css';
 import { Inter, Space_Grotesk } from 'next/font/google';
 import { baseMetadata, getWebsiteStructuredData } from '@/lib/metadata';
 import { Metadata } from 'next';
+import GoogleAnalytics from '@/components/GoogleAnalytics';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -30,8 +31,26 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
+        {/* Google Analytics */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-Q1J48YE4SY"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-Q1J48YE4SY');
+            `,
+          }}
+        />
       </head>
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        {children}
+        <GoogleAnalytics />
+      </body>
     </html>
   );
 }
