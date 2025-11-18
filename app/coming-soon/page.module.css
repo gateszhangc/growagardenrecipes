@@ -92,7 +92,7 @@
 
 .inputGroup {
   position: relative;
-  max-width: 500px;
+  max-width: 400px;
   margin: 0 auto 16px;
 }
 
@@ -129,7 +129,7 @@
 
 .submitBtn {
   width: 100%;
-  max-width: 500px;
+  max-width: 400px;
   padding: 18px 32px;
   background: linear-gradient(135deg, #22c55e, #16a34a);
   color: white;

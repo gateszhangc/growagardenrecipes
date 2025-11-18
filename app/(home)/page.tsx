@@ -15,16 +15,16 @@ const stats = [
 
 const categories = [
   { icon: '⚡', title: 'Fast Recipes', desc: '15 recipes ready in under 4 minutes', link: '/recipes/fast' },
-  { icon: '💰', title: 'High Reward Chains', desc: '12 legendary combos optimized for pet eggs', link: '/recipes/high-reward' },
-  { icon: '🌱', title: 'Beginner Garden', desc: '8 zero-rarity recipes with farm layout', link: '/recipes/beginners' },
+  { icon: '💰', title: 'High Reward Chains', desc: '12 legendary combos optimized for pet eggs', link: '/coming-soon' },
+  { icon: '🌱', title: 'Beginner Garden', desc: '8 zero-rarity recipes with farm layout', link: '/coming-soon' },
   { icon: '📖', title: 'Complete Collection', desc: '214 recipes + 28 pot water colors', link: '/recipes' },
 ];
 
 const popularRecipes = [
-  { icon: '🍎', name: 'Apple Pie', time: '45:00', rarity: 'Epic', reward: 'High', ingredients: 5 },
-  { icon: '🧀', name: 'Cheese Burger', time: '15:00', rarity: 'Common', reward: 'Medium', ingredients: 5 },
-  { icon: '🍕', name: 'Pizza', time: '04:30', rarity: 'Legendary', reward: 'Very High', ingredients: 6 },
-  { icon: '🍉', name: 'Watermelon Juice', time: '08:00', rarity: 'Common', reward: 'Medium', ingredients: 3 },
+  { icon: '🍎', name: 'Apple Pie', time: '45:00', rarity: 'Epic', reward: 'High', ingredients: 5, link: '/coming-soon' },
+  { icon: '🧀', name: 'Cheese Burger', time: '15:00', rarity: 'Common', reward: 'Medium', ingredients: 5, link: '/coming-soon' },
+  { icon: '🍕', name: 'Pizza', time: '04:30', rarity: 'Legendary', reward: 'Very High', ingredients: 6, link: '/coming-soon' },
+  { icon: '🍉', name: 'Watermelon Juice', time: '08:00', rarity: 'Common', reward: 'Medium', ingredients: 3, link: '/coming-soon' },
 ];
 
 const tips = [
@@ -53,7 +53,7 @@ export default function HomePage() {
             </p>
             <div className={styles.heroButtons}>
               <Link href="/recipes" className={styles.primaryBtn}>Browse All Recipes</Link>
-              <Link href="/submit-correction" className={styles.secondaryBtn}>Submit Correction</Link>
+              <Link href="/coming-soon" className={styles.secondaryBtn}>Submit Correction</Link>
             </div>
           </section>
 
@@ -130,7 +130,7 @@ export default function HomePage() {
             </div>
             <div className={styles.popularGrid}>
               {popularRecipes.map((recipe) => (
-                <Link key={recipe.name} href={`/recipes/${recipe.name.toLowerCase().replace(/ /g, '-')}`} className={styles.popularCard}>
+                <Link key={recipe.name} href={recipe.link} className={styles.popularCard}>
                   <div className={styles.recipeIcon}>{recipe.icon}</div>
                   <div className={styles.recipeRarity}>{recipe.rarity}</div>
                   <h3>{recipe.name}</h3>

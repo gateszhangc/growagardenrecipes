@@ -6,12 +6,12 @@ import Footer from '../../components/Footer';
 import styles from './page.module.css';
 
 const fastRecipes = [
-  { icon: '🍲', name: 'Soup', cookTime: '02:40', potColor: 'Light Blue', rarity: 'Common', reward: 'Low', ingredients: 3 },
-  { icon: '🥪', name: 'Sandwich', cookTime: '03:00', potColor: 'Green', rarity: 'Common', reward: 'Low', ingredients: 4 },
-  { icon: '🥗', name: 'Salad', cookTime: '02:10', potColor: 'Green', rarity: 'Common', reward: 'Low', ingredients: 3 },
-  { icon: '🍦', name: 'Ice Cream', cookTime: '03:20', potColor: 'Blue', rarity: 'Common', reward: 'Medium', ingredients: 4 },
-  { icon: '🌭', name: 'Hot Dog', cookTime: '03:30', potColor: 'Green', rarity: 'Common', reward: 'Medium', ingredients: 4 },
-  { icon: '🍕', name: 'Pizza', cookTime: '04:30', potColor: 'Red', rarity: 'Legendary', reward: 'Very High', ingredients: 6 },
+  { icon: '🍲', name: 'Soup', cookTime: '02:40', potColor: 'Light Blue', rarity: 'Common', reward: 'Low', ingredients: 3, link: '/recipes/soup' },
+  { icon: '🥪', name: 'Sandwich', cookTime: '03:00', potColor: 'Green', rarity: 'Common', reward: 'Low', ingredients: 4, link: '/coming-soon' },
+  { icon: '🥗', name: 'Salad', cookTime: '02:10', potColor: 'Green', rarity: 'Common', reward: 'Low', ingredients: 3, link: '/coming-soon' },
+  { icon: '🍦', name: 'Ice Cream', cookTime: '03:20', potColor: 'Blue', rarity: 'Common', reward: 'Medium', ingredients: 4, link: '/coming-soon' },
+  { icon: '🌭', name: 'Hot Dog', cookTime: '03:30', potColor: 'Green', rarity: 'Common', reward: 'Medium', ingredients: 4, link: '/coming-soon' },
+  { icon: '🍕', name: 'Pizza', cookTime: '04:30', potColor: 'Red', rarity: 'Legendary', reward: 'Very High', ingredients: 6, link: '/coming-soon' },
 ];
 
 const benefits = [
@@ -72,7 +72,7 @@ export default function FastRecipePage() {
               {fastRecipes.map((recipe) => (
                 <Link
                   key={recipe.name}
-                  href={`/recipes/${recipe.name.toLowerCase().replace(/ /g, '-')}`}
+                  href={recipe.link}
                   className={styles.recipeCard}
                 >
                   <div className={styles.recipeIcon}>{recipe.icon}</div>
@@ -134,7 +134,7 @@ export default function FastRecipePage() {
             <p>Browse all recipes or check out other categories</p>
             <div className={styles.ctaButtons}>
               <Link href="/recipes">View All Recipes</Link>
-              <Link href="/recipes/high-reward">High-Reward Recipes</Link>
+              <Link href="/coming-soon">High-Reward Recipes</Link>
               <Link href="/cooking">Cooking Guide</Link>
             </div>
           </section>
