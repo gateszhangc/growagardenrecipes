@@ -8,12 +8,6 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
 
-  // Enable experimental features for better SEO
-  experimental: {
-    optimizeCss: true,
-    optimizePackageImports: ['lucide-react'],
-  },
-
   // Image optimization
   images: {
     domains: ['growagarden-recipes.com'],
@@ -67,21 +61,6 @@ const nextConfig = {
     return [
       // Add any needed redirects here
     ];
-  },
-
-  // Environment variables
-  env: {
-    CUSTOM_KEY: process.env.CUSTOM_KEY,
-  },
-
-  // Webpack configuration for optimization
-  webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
-    config.resolve.fallback = {
-      ...config.resolve.fallback,
-      fs: false,
-    };
-
-    return config;
   },
 };
 
