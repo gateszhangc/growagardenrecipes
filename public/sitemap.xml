@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Homepage -->
   <url>
-    <loc>https://growagarden-recipes.com/</loc>
+    <loc>https://www.growagardenrecipes.space/</loc>
     <lastmod>2025-08-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -10,31 +10,31 @@
 
   <!-- Main Navigation Pages -->
   <url>
-    <loc>https://growagarden-recipes.com/cooking</loc>
+    <loc>https://www.growagardenrecipes.space/cooking</loc>
     <lastmod>2025-08-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://growagarden-recipes.com/recipes</loc>
+    <loc>https://www.growagardenrecipes.space/recipes</loc>
     <lastmod>2025-08-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://growagarden-recipes.com/ingredients</loc>
+    <loc>https://www.growagardenrecipes.space/ingredients</loc>
     <lastmod>2025-08-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://growagarden-recipes.com/rarity</loc>
+    <loc>https://www.growagardenrecipes.space/rarity</loc>
     <lastmod>2025-08-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://growagarden-recipes.com/rewards</loc>
+    <loc>https://www.growagardenrecipes.space/rewards</loc>
     <lastmod>2025-08-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -42,43 +42,43 @@
 
   <!-- Recipe Categories -->
   <url>
-    <loc>https://growagarden-recipes.com/recipes/fast</loc>
+    <loc>https://www.growagardenrecipes.space/recipes/fast</loc>
     <lastmod>2025-08-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://growagarden-recipes.com/recipes/high-reward</loc>
+    <loc>https://www.growagardenrecipes.space/recipes/high-reward</loc>
     <lastmod>2025-08-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://growagarden-recipes.com/recipes/beginners</loc>
+    <loc>https://www.growagardenrecipes.space/recipes/beginners</loc>
     <lastmod>2025-08-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://growagarden-recipes.com/recipes/pies</loc>
+    <loc>https://www.growagardenrecipes.space/recipes/pies</loc>
     <lastmod>2025-08-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://growagarden-recipes.com/recipes/burgers</loc>
+    <loc>https://www.growagardenrecipes.space/recipes/burgers</loc>
     <lastmod>2025-08-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://growagarden-recipes.com/recipes/soups</loc>
+    <loc>https://www.growagardenrecipes.space/recipes/soups</loc>
     <lastmod>2025-08-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://growagarden-recipes.com/recipes/drinks</loc>
+    <loc>https://www.growagardenrecipes.space/recipes/drinks</loc>
     <lastmod>2025-08-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -86,91 +86,91 @@
 
   <!-- Individual Recipe Pages -->
   <url>
-    <loc>https://growagarden-recipes.com/recipes/soup</loc>
+    <loc>https://www.growagardenrecipes.space/recipes/soup</loc>
     <lastmod>2025-08-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://growagarden-recipes.com/recipes/pizza</loc>
+    <loc>https://www.growagardenrecipes.space/recipes/pizza</loc>
     <lastmod>2025-08-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://growagarden-recipes.com/recipes/sandwich</loc>
+    <loc>https://www.growagardenrecipes.space/recipes/sandwich</loc>
     <lastmod>2025-08-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://growagarden-recipes.com/recipes/ice-cream</loc>
+    <loc>https://www.growagardenrecipes.space/recipes/ice-cream</loc>
     <lastmod>2025-08-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://growagarden-recipes.com/recipes/pie</loc>
+    <loc>https://www.growagardenrecipes.space/recipes/pie</loc>
     <lastmod>2025-08-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://growagarden-recipes.com/recipes/burger</loc>
+    <loc>https://www.growagardenrecipes.space/recipes/burger</loc>
     <lastmod>2025-08-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://growagarden-recipes.com/recipes/hot-dog</loc>
+    <loc>https://www.growagardenrecipes.space/recipes/hot-dog</loc>
     <lastmod>2025-08-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://growagarden-recipes.com/recipes/waffle</loc>
+    <loc>https://www.growagardenrecipes.space/recipes/waffle</loc>
     <lastmod>2025-08-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://growagarden-recipes.com/recipes/salad</loc>
+    <loc>https://www.growagardenrecipes.space/recipes/salad</loc>
     <lastmod>2025-08-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://growagarden-recipes.com/recipes/sushi</loc>
+    <loc>https://www.growagardenrecipes.space/recipes/sushi</loc>
     <lastmod>2025-08-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://growagarden-recipes.com/recipes/donut</loc>
+    <loc>https://www.growagardenrecipes.space/recipes/donut</loc>
     <lastmod>2025-08-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://growagarden-recipes.com/recipes/cake</loc>
+    <loc>https://www.growagardenrecipes.space/recipes/cake</loc>
     <lastmod>2025-08-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://growagarden-recipes.com/recipes/apple-pie</loc>
+    <loc>https://www.growagardenrecipes.space/recipes/apple-pie</loc>
     <lastmod>2025-08-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://growagarden-recipes.com/recipes/cheese-burger</loc>
+    <loc>https://www.growagardenrecipes.space/recipes/cheese-burger</loc>
     <lastmod>2025-08-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://growagarden-recipes.com/recipes/watermelon-juice</loc>
+    <loc>https://www.growagardenrecipes.space/recipes/watermelon-juice</loc>
     <lastmod>2025-08-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -178,73 +178,73 @@
 
   <!-- Ingredient Pages -->
   <url>
-    <loc>https://growagarden-recipes.com/ingredients/tomato</loc>
+    <loc>https://www.growagardenrecipes.space/ingredients/tomato</loc>
     <lastmod>2025-08-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://growagarden-recipes.com/ingredients/milk</loc>
+    <loc>https://www.growagardenrecipes.space/ingredients/milk</loc>
     <lastmod>2025-08-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://growagarden-recipes.com/ingredients/wheat</loc>
+    <loc>https://www.growagardenrecipes.space/ingredients/wheat</loc>
     <lastmod>2025-08-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://growagarden-recipes.com/ingredients/cheese</loc>
+    <loc>https://www.growagardenrecipes.space/ingredients/cheese</loc>
     <lastmod>2025-08-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://growagarden-recipes.com/ingredients/chicken</loc>
+    <loc>https://www.growagardenrecipes.space/ingredients/chicken</loc>
     <lastmod>2025-08-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://growagarden-recipes.com/ingredients/beef</loc>
+    <loc>https://www.growagardenrecipes.space/ingredients/beef</loc>
     <lastmod>2025-08-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://growagarden-recipes.com/ingredients/lettuce</loc>
+    <loc>https://www.growagardenrecipes.space/ingredients/lettuce</loc>
     <lastmod>2025-08-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://growagarden-recipes.com/ingredients/potato</loc>
+    <loc>https://www.growagardenrecipes.space/ingredients/potato</loc>
     <lastmod>2025-08-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://growagarden-recipes.com/ingredients/egg</loc>
+    <loc>https://www.growagardenrecipes.space/ingredients/egg</loc>
     <lastmod>2025-08-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://growagarden-recipes.com/ingredients/spice</loc>
+    <loc>https://www.growagardenrecipes.space/ingredients/spice</loc>
     <lastmod>2025-08-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://growagarden-recipes.com/ingredients/apple</loc>
+    <loc>https://www.growagardenrecipes.space/ingredients/apple</loc>
     <lastmod>2025-08-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://growagarden-recipes.com/ingredients/watermelon</loc>
+    <loc>https://www.growagardenrecipes.space/ingredients/watermelon</loc>
     <lastmod>2025-08-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -252,37 +252,37 @@
 
   <!-- Guide and Info Pages -->
   <url>
-    <loc>https://growagarden-recipes.com/guides/beginners-guide</loc>
+    <loc>https://www.growagardenrecipes.space/guides/beginners-guide</loc>
     <lastmod>2025-08-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://growagarden-recipes.com/about</loc>
+    <loc>https://www.growagardenrecipes.space/about</loc>
     <lastmod>2025-08-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://growagarden-recipes.com/contact</loc>
+    <loc>https://www.growagardenrecipes.space/contact</loc>
     <lastmod>2025-08-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://growagarden-recipes.com/faq</loc>
+    <loc>https://www.growagardenrecipes.space/faq</loc>
     <lastmod>2025-08-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://growagarden-recipes.com/changelog</loc>
+    <loc>https://www.growagardenrecipes.space/changelog</loc>
     <lastmod>2025-08-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://growagarden-recipes.com/submit-correction</loc>
+    <loc>https://www.growagardenrecipes.space/submit-correction</loc>
     <lastmod>2025-08-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -290,25 +290,25 @@
 
   <!-- Legal Pages -->
   <url>
-    <loc>https://growagarden-recipes.com/privacy</loc>
+    <loc>https://www.growagardenrecipes.space/privacy</loc>
     <lastmod>2025-08-06</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://growagarden-recipes.com/terms</loc>
+    <loc>https://www.growagardenrecipes.space/terms</loc>
     <lastmod>2025-08-06</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://growagarden-recipes.com/cookies</loc>
+    <loc>https://www.growagardenrecipes.space/cookies</loc>
     <lastmod>2025-08-06</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://growagarden-recipes.com/dmca</loc>
+    <loc>https://www.growagardenrecipes.space/dmca</loc>
     <lastmod>2025-08-06</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>

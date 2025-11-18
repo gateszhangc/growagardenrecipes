@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: 'Page Not Found | Grow a Garden Recipes',
   description: 'The page you are looking for does not exist. Browse our collection of Grow a Garden recipes and cooking guides.',
   alternates: {
-    canonical: 'https://growagarden-recipes.com/404',
+    canonical: 'https://www.growagardenrecipes.space/404',
   },
 };
 
