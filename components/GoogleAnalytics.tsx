@@ -1,17 +1,15 @@
 'use client';
 
 import { useEffect } from 'react';
-import { usePathname, useSearchParams } from 'next/navigation';
-import { pageview, GA_TRACKING_ID } from '@/lib/analytics';
 
 export default function GoogleAnalytics() {
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
-
   useEffect(() => {
-    const url = pathname + (searchParams?.toString() ? `?${searchParams.toString()}` : '');
-    pageview(url);
-  }, [pathname, searchParams]);
+    // Only run in the browser
+    if (typeof window !== 'undefined') {
+      // Google Analytics is already loaded via the script in layout.tsx
+      // No need to manually track page views as GA auto-pageview is enabled
+    }
+  }, []);
 
   return null;
 }

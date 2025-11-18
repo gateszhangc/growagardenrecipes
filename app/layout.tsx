@@ -2,7 +2,11 @@ import './globals.css';
 import { Inter, Space_Grotesk } from 'next/font/google';
 import { baseMetadata, getWebsiteStructuredData } from '@/lib/metadata';
 import { Metadata } from 'next';
-import GoogleAnalytics from '@/components/GoogleAnalytics';
+import dynamic from 'next/dynamic';
+
+const GoogleAnalytics = dynamic(() => import('@/components/GoogleAnalytics'), {
+  ssr: false,
+});
 
 const inter = Inter({
   subsets: ['latin'],
